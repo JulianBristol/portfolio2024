@@ -1,6 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) .
+# Julian Bristol's Portfolio Website
+👋 Hello there! Welcome to my frontend developer/designer portfolio website repository. This is the place where I showcase my passion for creating beautiful and functional web experiences.
+
+## 🚀 Live Demo
+Check out the live version of my portfolio [here](https://julianb.netlify.app/).
+
+## 🖥️ Technologies Used
+- **HTML5:** Structuring the content.
+- **CSS3:** Styling and animations.
+- **TypeScript:** Adding interactivity.
+[Any Additional Framework/Library]: [Brief description if applicable]
+
+## 🎨 Design Philosophy
+I believe in creating designs that not only look visually appealing but also provide a seamless and intuitive user experience. From concept to code, every detail matters.
+
+## 🛠️ Features
+- **Responsive Design:** Ensuring a great user experience on all devices.
+- **Portfolio Showcase:** Highlighting my best projects with detailed case studies.
+- **Interactive Elements:** Adding flair with smooth animations and interactive components.
+- **Contact Form:** Feel free to reach out to me directly through the website.
+
+## 🌐 Connect with Me
+- [LinkedIn](https://www.linkedin.com/in/julianbristol/)
+- [Portfolio Website](https://julianbristol.netlify.app/)
+
+## 📝 License
+This project is licensed under the [MIT License](https://opensource.org/license/mit/) - feel free to use the code as a template for your own portfolio.
+
+## 🙌 Acknowledgments
+Special thanks to [Name/Resource] for [inspiration/code snippets/resources].
+
+Feel free to explore the code, provide feedback, or even use this as a template for your own portfolio. The only thing that I ask is that you credit and link me in your work and if you have a LinkedIn [add me](https://www.linkedin.com/in/julianbristol/) and tell me how you used my work for inspiration/help on your projects. Happy coding! 🚀
+
 
 ## Getting Started
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
