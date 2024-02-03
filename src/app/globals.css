@@ -18,12 +18,55 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+#cursor-inner {
+  width: 12px;
+  height: 12px;
+  background: #246036;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 1s linear, width 0.2s linear, height 0.2s linear;
+  pointer-events: none;
+}
+
+#cursor-outer {
+  width: 32px;
+  height: 32px;
+  background-color: #D0D9C955;
+  border-radius: 50%;
+  border: 1px solid #246036;
+  box-sizing: border-box;
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s linear, border 0.3s linear,
+    width 0.2s linear, height 0.2s linear, opacity 0.7s 0.3s linear;
+  pointer-events: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #AA0606;
+}
+
+.bgCubes {
+  background-image: url("assets/cubes2.png");
+}
+
+.navOptionInteraction:focus .fontTransition, .navOptionInteraction:hover .fontTransition {
+  color: red;
+  font-size: 40px;
+}
+.fontTransition {
+  transition: font-size 300ms ease-in-out;
 }
 
 @layer utilities {
