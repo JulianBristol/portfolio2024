@@ -71,7 +71,7 @@ export default function Home() {
 			};
 			window.requestAnimationFrame(outerAnimation);
 		}
-	});
+	}, [isTouchDevice]);
 
   
 
@@ -86,7 +86,7 @@ export default function Home() {
         </div>)}
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh]">
-				<header className="text-ash mx-2 py-2 border-x-poppy border-y-transparent border-[0.5px] h-full min-h-[100vh]">
+				<header className="text-ash mx-2 py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition">
 					<Header />
 				</header>
 			</div>

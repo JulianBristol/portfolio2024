@@ -16,11 +16,18 @@
   }
 }
 
+.redBorderTransition {
+  transition: border 150ms ease-in-out;
+}
+
+.paddingTransition {
+  transition: padding 150ms ease-in-out;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: #D0D9C9;
+  /* cursor: none; */
 }
 
 #cursor-inner {
@@ -48,7 +55,7 @@ body {
   opacity: 0;
   transform: translate(-50%, -50%);
   transition: background-color 0.3s linear, border 0.3s linear,
-    width 0.2s linear, height 0.2s linear, opacity 0.7s 0.3s linear;
+    width 150ms linear, height 150ms linear, opacity 0.7s 0.3s linear;
   pointer-events: none;
 }
 
@@ -61,16 +68,10 @@ a:focus-visible {
   background-image: url("assets/cubes2.png");
 }
 
-.navOptionInteraction:focus .fontTransition, .navOptionInteraction:hover .fontTransition {
-  color: red;
-  font-size: 40px;
-}
-.fontTransition {
-  transition: font-size 300ms ease-in-out;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+/* Responsiveness */

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${crimsonPro.className} bg-creme`}>
+      <body className={`${crimsonPro.className} bg-creme overflow-x-hidden`}>
         {children}
       </body>
     </html>

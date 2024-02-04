@@ -31,6 +31,8 @@ const config: Config = {
         300: '#90AF99',
         500: '#246036',
       }
+    },
+    extend: {
     }
   },
   plugins: [],
