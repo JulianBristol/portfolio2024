@@ -36,6 +36,7 @@ body {
   background: #246036;
   border-radius: 50%;
   position: absolute;
+  z-index: 99999;
   left: 0;
   top: 0;
   opacity: 0;

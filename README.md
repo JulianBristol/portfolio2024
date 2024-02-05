@@ -11,7 +11,7 @@ Check out the live version of my portfolio [here](https://julianb.netlify.app/).
 [Any Additional Framework/Library]: [Brief description if applicable]
 
 ## 🎨 Design Philosophy
-I believe in creating designs that not only look visually appealing but also provide a seamless and intuitive user experience. From concept to code, every detail matters.
+I believe in creating designs that not only look visually appealing but also provide a seamless and intuitive user experience for all users. From concept to code, every detail matters which is why the bulk of this project was spent hashing out the design. This project was designed by me using mobile first development features, user experience testing (a.k.a asking friends to judge it and listening to their feedback), responsive design, accessibility-first design choices, and many more features
 
 ## 🛠️ Features
 - **Responsive Design:** Ensuring a great user experience on all devices.
@@ -24,13 +24,10 @@ I believe in creating designs that not only look visually appealing but also pro
 - [Portfolio Website](https://julianbristol.netlify.app/)
 
 ## 📝 License
-This project is licensed under the [MIT License](https://opensource.org/license/mit/) - feel free to use the code as a template for your own portfolio.
+This project is licensed under the [MIT License](https://opensource.org/license/mit/) - Feel free to explore the code, provide feedback, or even use this as a template for your own portfolio. The only thing that I ask is that you credit and link me in your work and if you have a LinkedIn [add me](https://www.linkedin.com/in/julianbristol/) and tell me how you used my work for inspiration/help on your projects. Happy coding! 🚀
 
 ## 🙌 Acknowledgments
 Special thanks to [Name/Resource] for [inspiration/code snippets/resources].
-
-Feel free to explore the code, provide feedback, or even use this as a template for your own portfolio. The only thing that I ask is that you credit and link me in your work and if you have a LinkedIn [add me](https://www.linkedin.com/in/julianbristol/) and tell me how you used my work for inspiration/help on your projects. Happy coding! 🚀
-
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

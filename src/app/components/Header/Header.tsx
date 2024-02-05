@@ -3,13 +3,12 @@ import Image from "next/image";
 import "./Header.scss";
 
 const Header = ({}) => {
-	
 
 	return (
 		<nav className="px-2 xs:px-6 md:px-12 py-4 flex justify-between font-semibold bg-ghost border-poppy border-y-[0.5px] xs:border-y-[2px] md:border-y-[3px] redBorderTransition paddingTransition headerFadeIn">
 			<a href="/" id="logo">
 				<Image
-					className="relative transition-all logoAnimation w-[27px] h-[27px] xs:w-[36px] xs:h-[36px] md:w-[50px] md:h-[50px]"
+					className="relative transition-all w-[27px] h-[27px] xs:w-[36px] xs:h-[36px] md:w-[50px] md:h-[50px] logoAnimation [animation-play-state:paused!important] hover:[animation-play-state:running!important]"
 					src="/logo.svg"
 					alt="Julian Bristol Logo"
                     aria-label="home"
