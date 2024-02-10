@@ -40,12 +40,25 @@ export default function Home() {
 			let innerX = 0,
 				innerY = 0,
 				outerX = 0,
-				outerY = 0;
+				outerY = 0,
+				offsetX = 0,
+				offsetY = 0;
+			document.addEventListener("scroll", (e) => {
+				offsetX = window.scrollX;
+				offsetY = window.scrollY;
+				inner.style.top = `${innerY + offsetY}px`;
+				inner.style.left = `${innerX + offsetX}px`;
+				if (!opacity) {
+					inner.style.opacity = outer.style.opacity = "1";
+				}
+			})
 			document.addEventListener("mousemove", (e) => {
 				innerX = e.clientX;
 				innerY = e.clientY;
-				inner.style.top = `${innerY}px`;
-				inner.style.left = `${innerX}px`;
+				offsetX = window.scrollX;
+				offsetY = window.scrollY;
+				inner.style.top = `${innerY + offsetY}px`;
+				inner.style.left = `${innerX + offsetX}px`;
 				if (!opacity) {
 					inner.style.opacity = outer.style.opacity = "1";
 				}
@@ -67,8 +80,8 @@ export default function Home() {
 
 			const outerAnimation = () => {
 				const parts = 6;
-				outerX += (innerX - outerX) / parts;
-				outerY += (innerY - outerY) / parts;
+				outerX += (innerX - outerX + offsetX) / parts;
+				outerY += (innerY - outerY + offsetY) / parts;
 				outer.style.top = `${outerY}px`;
 				outer.style.left = `${outerX}px`;
 				window.requestAnimationFrame(outerAnimation);
