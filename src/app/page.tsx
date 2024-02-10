@@ -2,30 +2,34 @@
 import Image from "next/image";
 import Header from "./components/Header/Header";
 import { useEffect, useState } from "react";
+import Hero from "./components/Hero/Hero";
 
 export default function Home() {
+	/* Initial check if user is using a touch device */
+	const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  /* Initial check if user is using a touch device */
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+	useEffect(() => {
+		const checkTouchDevice = () => {
+			setIsTouchDevice(
+				"ontouchstart" in window ||
+					navigator.maxTouchPoints > 0 ||
+					navigator.maxTouchPoints > 0
+			);
+		};
 
-  useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.maxTouchPoints > 0);
-    };
+		// Initial check when component mounts
+		checkTouchDevice();
 
-    // Initial check when component mounts
-    checkTouchDevice();
+		// Check for touch device on resize
+		window.addEventListener("resize", checkTouchDevice);
 
-    // Check for touch device on resize
-    window.addEventListener('resize', checkTouchDevice);
+		// Unmount
+		return () => {
+			window.removeEventListener("resize", checkTouchDevice);
+		};
+	}, []);
 
-    // Unmount
-    return () => {
-      window.removeEventListener('resize', checkTouchDevice);
-    };
-  }, []);
-
-  /* mouse chaser */
+	/* mouse chaser */
 	useEffect(() => {
 		const inner = document.getElementById("cursor-inner");
 		const outer = document.getElementById("cursor-outer");
@@ -47,19 +51,19 @@ export default function Home() {
 				}
 			});
 
-  document.body.addEventListener('mousedown', function() {
-    inner.style.width = '18px';
-    inner.style.height = '18px';
-    outer.style.width = '48px';
-    outer.style.height = '48px';
-  });
-  
-  document.body.addEventListener('mouseup', function() {
-    inner.style.width = '12px';
-    inner.style.height = '12px';
-    outer.style.width = '32px';
-    outer.style.height = '32px';
-  });
+			document.body.addEventListener("mousedown", function () {
+				inner.style.width = "18px";
+				inner.style.height = "18px";
+				outer.style.width = "48px";
+				outer.style.height = "48px";
+			});
+
+			document.body.addEventListener("mouseup", function () {
+				inner.style.width = "12px";
+				inner.style.height = "12px";
+				outer.style.width = "32px";
+				outer.style.height = "32px";
+			});
 
 			const outerAnimation = () => {
 				const parts = 6;
@@ -73,22 +77,52 @@ export default function Home() {
 		}
 	}, [isTouchDevice]);
 
-  
-
 	return (
-		<div className="bg-creme h-full min-h-[100vh] focus:ring-poppy">
-      
-      {/* On desktop device */}
-      {!isTouchDevice && (
-        <div>
-			<div id="cursor-outer" />
-			<div id="cursor-inner" />
-        </div>)}
+		<div className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash leading-5 font-medium">
+			{/* On desktop device */}
+			{!isTouchDevice && (
+				<div>
+					<div id="cursor-outer" />
+					<div id="cursor-inner" />
+				</div>
+			)}
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh]">
-				<header className="text-ash mx-2 py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition">
-					<Header />
-				</header>
+				<div className="mx-2 py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition">
+					<header className="">
+						<Header />
+					</header>
+					<main>
+						<section>
+							{/* hero section */}
+							{/* h1 - Hey, its me Julian bristol */}
+							<Hero />
+						</section>
+						<section id="about">
+							{/* about me section */}
+							{/* h2 - Who is Julian */}
+						</section>
+						<section id="history">
+							{/* history section */}
+							{/* h2 - History */}
+						</section>
+						<section id="tech">
+							{/* technologies that I am skilled in section */}
+							{/* h2 - Technologies */}
+						</section>
+						<section id="portfolio">
+							{/* Portfolio items that I have created section */}
+							{/* h2 - Portfolio */}
+						</section>
+						<section id="contact">
+							{/* contact julian form section
+            ps. don't forget the accessibility requirements for form elements
+            */}
+							{/* h2 - Contact me */}
+						</section>
+					</main>
+					<footer>{/* if I have  one... */}</footer>
+				</div>
 			</div>
 		</div>
 	);

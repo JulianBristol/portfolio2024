@@ -5,7 +5,7 @@ import "./Header.scss";
 const Header = ({}) => {
 
 	return (
-		<nav className="px-2 xs:px-6 md:px-12 py-4 flex justify-between font-semibold bg-ghost border-poppy border-y-[0.5px] xs:border-y-[2px] md:border-y-[3px] redBorderTransition paddingTransition headerFadeIn">
+		<nav className="px-2 xs:px-6 md:px-12 py-4 flex justify-between font-semibold text-ash bg-ghost border-poppy border-y-[0.5px] xs:border-y-[2px] md:border-y-[3px] redBorderTransition paddingTransition headerFadeIn">
 			<a href="/" id="logo">
 				<Image
 					className="relative transition-all w-[27px] h-[27px] xs:w-[36px] xs:h-[36px] md:w-[50px] md:h-[50px] logoAnimation [animation-play-state:paused!important] hover:[animation-play-state:running!important]"
@@ -20,7 +20,7 @@ const Header = ({}) => {
 			<ul className="text-[12px] xs:text-[16px] md:text-[24px] font-bold flex items-center gap-[6px] xs:gap-2 md:gap-6 transition-all">
 				<li className="inline ml-2">
 					<a href="#about" className="py-[5px] navOptionInteraction relative">
-						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition letterA">
+						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition firstLetter letterA">
 							a
 						</span>
 						BOUT
@@ -28,7 +28,7 @@ const Header = ({}) => {
 				</li>
 				<li className="inline ml-2">
 					<a href="#history" className="py-[5px] navOptionInteraction relative">
-						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition letterH">
+						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition firstLetter letterH">
 							h
 						</span>
 						ISTORY
@@ -39,7 +39,7 @@ const Header = ({}) => {
 						href="#portfolio"
 						className="py-[5px] navOptionInteraction relative"
 					>
-						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition letterP">
+						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition firstLetter letterP">
 							p
 						</span>
 						ORTFOLIO
@@ -47,7 +47,7 @@ const Header = ({}) => {
 				</li>
 				<li className="inline ml-2">
 					<a href="#contact" className="py-[5px] navOptionInteraction relative">
-						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition letterC">
+						<span className="text-[16px] xs:text-[22px] md:text-[32px] leading-[0px] font-semibold lgFontTransition firstLetter letterC">
 							c
 						</span>
 						ONTACT

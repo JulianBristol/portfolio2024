@@ -21,6 +21,11 @@
     }
 }
 
+.firstLetter{
+  position: relative;
+  top: -0.2px;
+}
+
 .navOptionInteraction:focus,
 .navOptionInteraction:hover {
   text-decoration: underline 2px;
@@ -57,6 +62,10 @@
 
 /* Responsiveness */
 @media screen and (min-width: 480px) {
+
+  .firstLetter{
+    top: -0.1px; 
+  }
 
   .navOptionInteraction:focus .lgFontTransition,
   .navOptionInteraction:hover .lgFontTransition {
