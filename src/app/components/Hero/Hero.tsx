@@ -2,6 +2,10 @@ import Image from "next/image";
 import React, { FC } from "react";
 import bokeh from "../../assets/BokehBGProfile.webp";
 import profileImg from "../../assets/JulianBristol.webp";
+import github from "../../assets/github.svg";
+import leetcode from "../../assets/leetcode.svg";
+import portfolio from "../../assets/portfolio.svg";
+import linkedIn from "../../assets/linkedIn.svg";
 
 interface HeroProps {}
 
@@ -37,12 +41,15 @@ const Hero: FC<HeroProps> = ({}) => {
 					</div>
 
 					{/* links */}
-					<section className="text-[12px] w-full">
+					<section className="text-[12px] w-full max-w-[150px]">
 						<section className="flex flex-col">
 							<p>Learn more</p>
-							<button className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco">
+							<a
+								href="#about"
+								className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							>
 								About Me
-							</button>
+							</a>
 							<hr className="text-smoke my-2 w-[50%] self-center" />
 						</section>
 						<section className="flex flex-col">
@@ -52,34 +59,99 @@ const Hero: FC<HeroProps> = ({}) => {
 									Developer |
 								</span>
 							</div>
-							<button className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco">
+							<a
+								href="#history"
+								className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							>
 								History
-							</button>
+							</a>
 							<hr className="text-smoke my-2 w-[50%] self-center" />
 						</section>
 						<section className="flex flex-col">
 							<p>Check out my</p>
-							<button className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco">
+							<a
+								href="#portfolio"
+								className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							>
 								Portfolio
-							</button>
+							</a>
 							<hr className="text-smoke my-2 w-[50%] self-center" />
 						</section>
 						<section className="flex flex-col">
 							<p>You can also</p>
-							<button className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco">
+							<a
+								href="#contact"
+								className="bg-morocco px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							>
 								Contact Me
-							</button>
+							</a>
 						</section>
 					</section>
 				</div>
 
 				{/* Social Links */}
 				<section className="mx-4 my-4">
-					<ol className="flex flex-row justify-between">
-						<li>link1</li>
-						<li>link2</li>
-						<li>link3</li>
-						<li>link4</li>
+					<ol className="flex flex-row justify-between text-[12px] text-hope-500">
+						<li>
+							<figure>
+							<a href="https://github.com/JulianBristol" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+								<Image
+									src={github}
+									alt="Github Icon"
+									aria-label="Julian's Github Account"
+									width={27}
+									height={27}
+									priority
+								/>
+								<figcaption>Github</figcaption>
+							</a>
+							</figure>
+						</li>
+						<li>
+							<figure>
+							<a href="https://leetcode.com/BristolJ/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+								<Image
+									src={leetcode}
+									alt="Leetcode icon"
+									aria-label="Julian's Leetcode Account"
+									width={27}
+									height={27}
+									priority
+								/>
+								<figcaption>Leetcode</figcaption>
+							</a>
+							</figure>
+						</li>
+						<li>
+							<figure>
+							<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+								<Image
+									src={portfolio}
+									alt="Portfolio Icon"
+									aria-label="See Julian's résumé"
+									width={27}
+									height={27}
+									priority
+								/>
+								<figcaption>Résumé</figcaption>
+							</a>
+							</figure>
+						</li>
+						<li>
+							<figure>
+							<a href="https://www.linkedin.com/in/julianbristol/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+								<Image
+									src={linkedIn}
+									alt="LinkIn Icon"
+									aria-label="Julian's LinkedIn Account"
+									width={27}
+									height={27}
+									priority
+								/>
+								<figcaption>LinkedIn</figcaption>
+							</a>
+							</figure>
+						</li>
 					</ol>
 				</section>
 			</div>
