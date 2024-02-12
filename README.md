@@ -7,6 +7,7 @@ Check out the live version of my portfolio [here](https://julianb.netlify.app/).
 ## 🖥️ Technologies Used
 - **HTML5:** Structuring the content.
 - **CSS3:** Styling and animations.
+- **AnimeJS:** Additional Complex Animations.
 - **TypeScript:** Adding interactivity.
 [Any Additional Framework/Library]: [Brief description if applicable]
 

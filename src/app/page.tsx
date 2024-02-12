@@ -1,13 +1,84 @@
 "use client";
+import anime from "animejs";
 import Image from "next/image";
 import Header from "./components/Header/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Hero from "./components/Hero/Hero";
+import innerCircle from "./assets/innerCircle.svg";
 
 export default function Home() {
-	/* Initial check if user is using a touch device */
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
+	const [toggleCursor, setToggleCursor] = useState(false);
 
+	/* Setup AnimeJS */
+	useEffect(() => {
+		const timeline = anime.timeline({
+			duration: 150, //in milliseconds
+			easing: "easeOutExpo",
+		});
+		timeline.add({
+			/* Adds stroke-width change to the id outerCursorPath based on the toggleCursor useState */
+			targets: "#outerCursorPath",
+			strokeWidth: [{ value: `${toggleCursor ? "1" : "0.5"}` }],
+		})
+		.add({
+			/* Adds viewbox change to the id cursor-outer based on the toggleCursor useState */
+			targets: "#cursor-outer",
+			viewBox: [{ value: `${toggleCursor ? "-0.5 -0.5 15 15" : "0 0 14 14"}` }],
+		});
+	},[toggleCursor])
+
+	/* Use event delegation so that each link and button has the effect */
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const outer = document.getElementById("cursor-outer");
+
+		const handleHover = (event: MouseEvent) => {
+			/* Check if user is hovering over a button or link */
+			if (event.target) {
+				const hoverTarget = (event.target as HTMLElement).closest("button, a");
+
+				/* run function to change cursor if the hoverTarget is true */
+				if (hoverTarget) {
+					setToggleCursor((prevToggleCursor) => {
+						if (outer) {
+							outer.style.width = "32px";
+							outer.style.height = "32px";
+							outer.style.mixBlendMode = "darken";
+						}
+						return true;
+					});
+				} else {
+					if (toggleCursor) {
+						setToggleCursor((prevToggleCursor) => {
+							if (outer) {
+								outer.style.width = "12px";
+								outer.style.height = "12px";
+								outer.style.mixBlendMode = "normal";
+							}
+							return false;
+						});
+					}
+				}
+			}
+		};
+
+		// Attach the event listener to the container
+		const container = containerRef.current;
+		if (container) {
+			container.addEventListener("mouseover", handleHover);
+		}
+
+		// Cleanup: remove the event listener when the component is unmounted
+		return () => {
+			if (container) {
+				container.removeEventListener("mouseover", handleHover);
+			}
+		};
+	}, [toggleCursor]);
+
+	/* Initial check if user is using a touch device */
 	useEffect(() => {
 		const checkTouchDevice = () => {
 			setIsTouchDevice(
@@ -43,6 +114,7 @@ export default function Home() {
 				outerY = 0,
 				offsetX = 0,
 				offsetY = 0;
+
 			document.addEventListener("scroll", (e) => {
 				offsetX = window.scrollX;
 				offsetY = window.scrollY;
@@ -51,7 +123,8 @@ export default function Home() {
 				if (!opacity) {
 					inner.style.opacity = outer.style.opacity = "1";
 				}
-			})
+			});
+
 			document.addEventListener("mousemove", (e) => {
 				innerX = e.clientX;
 				innerY = e.clientY;
@@ -65,17 +138,25 @@ export default function Home() {
 			});
 
 			document.body.addEventListener("mousedown", function () {
-				inner.style.width = "18px";
-				inner.style.height = "18px";
-				outer.style.width = "48px";
-				outer.style.height = "48px";
+				setToggleCursor((prevToggleCursor) => {
+					if (outer) {
+						outer.style.width = "32px";
+						outer.style.height = "32px";
+						outer.style.mixBlendMode = "darken";
+					}
+					return true;
+				});
 			});
 
 			document.body.addEventListener("mouseup", function () {
-				inner.style.width = "12px";
-				inner.style.height = "12px";
-				outer.style.width = "32px";
-				outer.style.height = "32px";
+				setToggleCursor((prevToggleCursor) => {
+					if (outer) {
+						outer.style.width = "12px";
+						outer.style.height = "12px";
+						outer.style.mixBlendMode = "normal";
+					}
+					return true;
+				});
 			});
 
 			const outerAnimation = () => {
@@ -91,12 +172,31 @@ export default function Home() {
 	}, [isTouchDevice]);
 
 	return (
-		<div className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash leading-5 font-medium">
+		<div
+			className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash leading-5 font-medium"
+			ref={containerRef}
+		>
 			{/* On desktop device */}
 			{!isTouchDevice && (
 				<div>
-					<div id="cursor-outer" />
-					<div id="cursor-inner" />
+					<svg
+						id="cursor-outer"
+						width="14"
+						height="14"
+						viewBox="0 0 14 14"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							id="outerCursorPath"
+							d="M13.75 7C13.75 10.7279 10.7279 13.75 7 13.75C3.27208 13.75 0.25 10.7279 0.25 7C0.25 3.27208 3.27208 0.25 7 0.25C10.7279 0.25 13.75 3.27208 13.75 7Z"
+							fill="#D0D9C9"
+							fillOpacity="0.55"
+							stroke="#246036"
+							strokeWidth="0.5"
+						/>
+					</svg>
+					<Image id="cursor-inner" src={innerCircle} alt="" />
 				</div>
 			)}
 
