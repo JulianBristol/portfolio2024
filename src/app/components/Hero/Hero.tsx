@@ -1,50 +1,77 @@
 "use client";
 import Image from "next/image";
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import bokeh from "../../assets/BokehBGProfile.webp";
 import profileImg from "../../assets/JulianBristol.webp";
 import github from "../../assets/github.svg";
 import leetcode from "../../assets/leetcode.svg";
 import portfolio from "../../assets/portfolio.svg";
 import linkedIn from "../../assets/linkedIn.svg";
+import "./Hero.scss"
 
 interface HeroProps {}
 
 const Hero: FC<HeroProps> = ({}) => {
-	/**
-	 * todo: allow words to change, move word scramble into its own function, set up a timer for the cursor blink
-	  */
+	const [currentTitle, setCurrentTitle] = useState<number>(0);
+
 	const myTitles = [
-		"DEVELOPER" /* , 'DESIGNER', 'SCIENTIST', 'STUDENT', 'TEACHER' */,
+		"DEVELOPER",
+		"DESIGNER",
+		"SCIENTIST",
+		"STUDENT",
+		"READER",
+		"TEACHER",
+		"ENGINEER",
+		"ARTIST",
+		"WRITER",
 	];
 	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*?";
 
 	useEffect(() => {
+		// Get the element with the id "titles"
 		const title = document.getElementById("titles");
-		if (title) {
-			title.onmouseover = (event: MouseEvent) => {
-				let iterations = 0;
 
-				const interval = setInterval(() => {
-					if (event && event.target) {
-						const target = event.target as HTMLElement;
-						if (target.dataset.value) {
-							const value = target.dataset.value;
-							target.innerText = target.innerText
-							  .split("")
-							  .map((character, index) => {
+		// Function to refresh titles on mouseover or click event
+		const refreshTitles = (event: MouseEvent) => {
+			let iterations = 0;
+
+			// Set interval to modify the text gradually
+			const interval = setInterval(() => {
+				if (event && event.target) {
+					const target = event.target as HTMLElement;
+					if (target.dataset.value) {
+						const value = target.dataset.value;
+
+						// Modify text character by character
+						target.innerText = target.innerText
+							.split("")
+							.map((character, index) => {
 								if (index < iterations && value) {
-								  return value[index];
+									return value[index];
 								}
 								return characters[Math.floor(Math.random() * 35)];
-							  })
-							  .join("");
+							})
+							.join("");
 
-							if (iterations >= target.dataset.value.length) clearInterval(interval);
-							iterations += 1/3;
+						// Clear interval when iterations reach the length of dataset.value
+						if (iterations >= target.dataset.value.length)
+							clearInterval(interval);
+						iterations += 1 / 3;
 					}
-						  }
-				}, 30);
+				}
+			}, 30);
+		};
+
+		// Attach event listeners if the title element exists
+		if (title) {
+			// Refresh titles on mouseover
+			title.onmouseover = (event: MouseEvent) => {
+				refreshTitles(event);
+			};
+
+			// Refresh titles on click
+			title.onclick = (event: MouseEvent) => {
+				refreshTitles(event);
 			};
 		}
 	}, []);
@@ -97,9 +124,20 @@ const Hero: FC<HeroProps> = ({}) => {
 						<section className="flex flex-col">
 							<div className="flex flex-row justify-around mb-[2px]">
 								<p>I am a... </p>
-								<span className="text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer">
-									<span id="titles" data-value={myTitles}>{myTitles}</span>
-									|
+								<span
+									className="text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer"
+									onClick={() => {
+										if (currentTitle >= myTitles.length - 1) {
+											setCurrentTitle(0);
+										} else {
+											setCurrentTitle(currentTitle + 1);
+										}
+									}}
+								>
+									<span id="titles" data-value={myTitles[currentTitle]}>
+										{myTitles[currentTitle]}
+									</span>
+									<span className="blinking">|</span>
 								</span>
 							</div>
 							<a
@@ -133,7 +171,7 @@ const Hero: FC<HeroProps> = ({}) => {
 				</div>
 
 				{/* Social Links */}
-				<section className="mx-4 my-4">
+				<section className="mx-4 my-2">
 					<ol className="flex flex-row justify-evenly text-[12px] text-hope-500">
 						<li>
 							<figure>
@@ -141,16 +179,19 @@ const Hero: FC<HeroProps> = ({}) => {
 									href="https://github.com/JulianBristol"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex flex-col items-center"
+									className="flex flex-col items-center group"
 								>
-									<Image
-										src={github}
-										alt="Github Icon"
-										aria-label="Julian's Github Account"
-										width={27}
-										height={27}
-										priority
-									/>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md">
+										<Image
+											className="mix-blend-multiply"
+											src={github}
+											alt="Github Icon"
+											aria-label="Julian's Github Account"
+											width={27}
+											height={27}
+											priority
+										/>
+									</div>
 									<figcaption>Github</figcaption>
 								</a>
 							</figure>
@@ -161,16 +202,19 @@ const Hero: FC<HeroProps> = ({}) => {
 									href="https://leetcode.com/BristolJ/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex flex-col items-center"
+									className="flex flex-col items-center group"
 								>
-									<Image
-										src={leetcode}
-										alt="Leetcode icon"
-										aria-label="Julian's Leetcode Account"
-										width={27}
-										height={27}
-										priority
-									/>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md">
+										<Image
+											className="mix-blend-multiply"
+											src={leetcode}
+											alt="Leetcode icon"
+											aria-label="Julian's Leetcode Account"
+											width={27}
+											height={27}
+											priority
+										/>
+									</div>
 									<figcaption>Leetcode</figcaption>
 								</a>
 							</figure>
@@ -181,16 +225,19 @@ const Hero: FC<HeroProps> = ({}) => {
 									href="/resume.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex flex-col items-center"
+									className="flex flex-col items-center group"
 								>
-									<Image
-										src={portfolio}
-										alt="Portfolio Icon"
-										aria-label="See Julian's résumé"
-										width={27}
-										height={27}
-										priority
-									/>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md">
+										<Image
+											className="mix-blend-multiply"
+											src={portfolio}
+											alt="Portfolio Icon"
+											aria-label="See Julian's résumé"
+											width={27}
+											height={27}
+											priority
+										/>
+									</div>
 									<figcaption>Résumé</figcaption>
 								</a>
 							</figure>
@@ -201,16 +248,19 @@ const Hero: FC<HeroProps> = ({}) => {
 									href="https://www.linkedin.com/in/julianbristol/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex flex-col items-center"
+									className="flex flex-col items-center group"
 								>
-									<Image
-										src={linkedIn}
-										alt="LinkIn Icon"
-										aria-label="Julian's LinkedIn Account"
-										width={27}
-										height={27}
-										priority
-									/>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md">
+										<Image
+											className="mix-blend-multiply"
+											src={linkedIn}
+											alt="LinkIn Icon"
+											aria-label="Julian's LinkedIn Account"
+											width={27}
+											height={27}
+											priority
+										/>
+									</div>
 									<figcaption>LinkedIn</figcaption>
 								</a>
 							</figure>

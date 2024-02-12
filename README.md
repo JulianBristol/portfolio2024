@@ -27,7 +27,7 @@ I believe in creating designs that not only look visually appealing but also pro
 This project is licensed under the [MIT License](https://opensource.org/license/mit/) - Feel free to explore the code, provide feedback, or even use this as a template for your own portfolio. The only thing that I ask is that you credit and link me in your work and if you have a LinkedIn [add me](https://www.linkedin.com/in/julianbristol/) and tell me how you used my work for inspiration/help on your projects. Happy coding! 🚀
 
 ## 🙌 Acknowledgments
-Special thanks to [Name/Resource] for [inspiration/code snippets/resources].
+Special thanks to [Hyperplexed](https://www.youtube.com/watch?v=W5oawMJaXbU&ab_channel=Hyperplexed) for his help and the inspiration on the text shuffle effect.
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
