@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { FC, useEffect } from "react";
 import bokeh from "../../assets/BokehBGProfile.webp";
@@ -11,26 +11,43 @@ import linkedIn from "../../assets/linkedIn.svg";
 interface HeroProps {}
 
 const Hero: FC<HeroProps> = ({}) => {
-	const myTitles = ['DEVELOPER'/* , 'DESIGNER', 'SCIENTIST', 'STUDENT', 'TEACHER' */];
-	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*?"
+	/**
+	 * todo: allow words to change, move word scramble into its own function, set up a timer for the cursor blink
+	  */
+	const myTitles = [
+		"DEVELOPER" /* , 'DESIGNER', 'SCIENTIST', 'STUDENT', 'TEACHER' */,
+	];
+	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*?";
 
 	useEffect(() => {
 		const title = document.getElementById("titles");
+		if (title) {
+			title.onmouseover = (event: MouseEvent) => {
+				let iterations = 0;
 
-	if (title){
-		title.onmouseover = (event: MouseEvent) => {
-			if (event.target){
-				(event.target as HTMLElement).innerText
-				.split("")
-				.map( letter => {
-					characters[Math.floor(Math.random() * 35)]
-				})
-				.join("");
-			}
+				const interval = setInterval(() => {
+					if (event && event.target) {
+						const target = event.target as HTMLElement;
+						if (target.dataset.value) {
+							const value = target.dataset.value;
+							target.innerText = target.innerText
+							  .split("")
+							  .map((character, index) => {
+								if (index < iterations && value) {
+								  return value[index];
+								}
+								return characters[Math.floor(Math.random() * 35)];
+							  })
+							  .join("");
+
+							if (iterations >= target.dataset.value.length) clearInterval(interval);
+							iterations += 1/3;
+					}
+						  }
+				}, 30);
+			};
 		}
-	}
-	},[])
-	
+	}, []);
 
 	return (
 		<>
@@ -80,8 +97,9 @@ const Hero: FC<HeroProps> = ({}) => {
 						<section className="flex flex-col">
 							<div className="flex flex-row justify-around mb-[2px]">
 								<p>I am a... </p>
-								<span id="titles" className="text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer">
-									{myTitles}|
+								<span className="text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer">
+									<span id="titles" data-value={myTitles}>{myTitles}</span>
+									|
 								</span>
 							</div>
 							<a
@@ -119,62 +137,82 @@ const Hero: FC<HeroProps> = ({}) => {
 					<ol className="flex flex-row justify-evenly text-[12px] text-hope-500">
 						<li>
 							<figure>
-							<a href="https://github.com/JulianBristol" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-								<Image
-									src={github}
-									alt="Github Icon"
-									aria-label="Julian's Github Account"
-									width={27}
-									height={27}
-									priority
-								/>
-								<figcaption>Github</figcaption>
-							</a>
+								<a
+									href="https://github.com/JulianBristol"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center"
+								>
+									<Image
+										src={github}
+										alt="Github Icon"
+										aria-label="Julian's Github Account"
+										width={27}
+										height={27}
+										priority
+									/>
+									<figcaption>Github</figcaption>
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure>
-							<a href="https://leetcode.com/BristolJ/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-								<Image
-									src={leetcode}
-									alt="Leetcode icon"
-									aria-label="Julian's Leetcode Account"
-									width={27}
-									height={27}
-									priority
-								/>
-								<figcaption>Leetcode</figcaption>
-							</a>
+								<a
+									href="https://leetcode.com/BristolJ/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center"
+								>
+									<Image
+										src={leetcode}
+										alt="Leetcode icon"
+										aria-label="Julian's Leetcode Account"
+										width={27}
+										height={27}
+										priority
+									/>
+									<figcaption>Leetcode</figcaption>
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure>
-							<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-								<Image
-									src={portfolio}
-									alt="Portfolio Icon"
-									aria-label="See Julian's résumé"
-									width={27}
-									height={27}
-									priority
-								/>
-								<figcaption>Résumé</figcaption>
-							</a>
+								<a
+									href="/resume.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center"
+								>
+									<Image
+										src={portfolio}
+										alt="Portfolio Icon"
+										aria-label="See Julian's résumé"
+										width={27}
+										height={27}
+										priority
+									/>
+									<figcaption>Résumé</figcaption>
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure>
-							<a href="https://www.linkedin.com/in/julianbristol/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-								<Image
-									src={linkedIn}
-									alt="LinkIn Icon"
-									aria-label="Julian's LinkedIn Account"
-									width={27}
-									height={27}
-									priority
-								/>
-								<figcaption>LinkedIn</figcaption>
-							</a>
+								<a
+									href="https://www.linkedin.com/in/julianbristol/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center"
+								>
+									<Image
+										src={linkedIn}
+										alt="LinkIn Icon"
+										aria-label="Julian's LinkedIn Account"
+										width={27}
+										height={27}
+										priority
+									/>
+									<figcaption>LinkedIn</figcaption>
+								</a>
 							</figure>
 						</li>
 					</ol>
