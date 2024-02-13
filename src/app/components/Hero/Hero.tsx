@@ -7,7 +7,7 @@ import github from "../../assets/github.svg";
 import leetcode from "../../assets/leetcode.svg";
 import portfolio from "../../assets/portfolio.svg";
 import linkedIn from "../../assets/linkedIn.svg";
-import "./Hero.scss"
+import "./Hero.scss";
 
 interface HeroProps {}
 
@@ -78,16 +78,19 @@ const Hero: FC<HeroProps> = ({}) => {
 
 	return (
 		<>
-			<div className="xs:hidden flex justify-center flex-col my-4">
-				<h1 className="text-[18px] xs:hidden text-center mx-6">
-					Hey, it&apos;s me, <br />
-					<span className="text-[24px]">Julian Bristol</span>
-				</h1>
-				<p className="mt-4 mx-6">
-					I really enjoy turning ideas into reality. I have a passion for
-					learning new skills and applying them in interesting projects.
-				</p>
+		<section className="text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] leading-5 sm:leading-tight textTransition">
+			<h1 className=" my-4 text-center mx-6">
+				Hey, it&apos;s me, <br />
+				<span className="text-[24px] sm:text-[32px] lg:text-[38px] xl:text-[48px] 2xl:text-[58px] textTransition">Julian Bristol</span>
+			</h1>
+			<p className="mt-4 mx-6">
+				I really enjoy turning ideas into reality. I have a passion for learning
+				new skills and applying them in interesting projects.
+			</p>
+			</section>
 
+			{/* Mobile View */}
+			<div className="xs:hidden flex justify-center flex-col my-4">
 				<div className="flex flex-row mt-6 mx-2 mb-4 gap-4">
 					{/* image */}
 					<div className="rounded-[50px] w-[120%] h-[250px] max-h-[250px] my-auto relative overflow-hidden border-ghost border-[1.5px] shadow-md shadow-shadow-25">
@@ -192,7 +195,11 @@ const Hero: FC<HeroProps> = ({}) => {
 											priority
 										/>
 									</div>
-									<figcaption>Github</figcaption>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Github
+										</figcaption>
+									</div>
 								</a>
 							</figure>
 						</li>
@@ -215,7 +222,11 @@ const Hero: FC<HeroProps> = ({}) => {
 											priority
 										/>
 									</div>
-									<figcaption>Leetcode</figcaption>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Leetcode
+										</figcaption>
+									</div>
 								</a>
 							</figure>
 						</li>
@@ -238,7 +249,11 @@ const Hero: FC<HeroProps> = ({}) => {
 											priority
 										/>
 									</div>
-									<figcaption>Résumé</figcaption>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Résumé
+										</figcaption>
+									</div>
 								</a>
 							</figure>
 						</li>
@@ -261,12 +276,100 @@ const Hero: FC<HeroProps> = ({}) => {
 											priority
 										/>
 									</div>
-									<figcaption>LinkedIn</figcaption>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											LinkedIn
+										</figcaption>
+									</div>
 								</a>
 							</figure>
 						</li>
 					</ol>
 				</section>
+			</div>
+			
+			{/* Desktop View */}
+			<div className="hidden xs:flex flex-row justify-center mx-4 mt-12 sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] textTransition">
+				<section className="flex flex-col flex-1 mx-4">
+					<section className="flex flex-col">
+						<p>Learn more</p>
+						<a
+							href="#about"
+							className="bg-morocco mt-4 mb-2 p-2 py-[2px] lg:py-2 rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+						>
+							About Me
+						</a>
+						<hr className="text-smoke my-2 w-[75%] self-center" />
+					</section>
+					<section className="flex flex-col mt-4 mb-6">
+						<p>Check out my</p>
+						<a
+							href="#portfolio"
+							className="bg-morocco my-4  px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+						>
+							Portfolio
+						</a>
+					</section>
+					<section className="mx-4 my-2">
+					<ol className="flex flex-row justify-evenly text-hope-500 gap-5">
+						<li className="w-full">
+							<figure className="flex justify-center">
+								<a
+									href="https://github.com/JulianBristol"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center group w-[50%]"
+								>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
+										<Image
+											className="mix-blend-multiply w-full"
+											src={github}
+											alt="Github Icon"
+											aria-label="Julian's Github Account"
+											priority
+										/>
+									</div>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Github
+										</figcaption>
+									</div>
+								</a>
+							</figure>
+						</li>
+						<li className="w-full">
+							<figure className="flex justify-center">
+								<a
+									href="https://leetcode.com/BristolJ/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex flex-col items-center group w-[50%]"
+								>
+									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
+										<Image
+											className="mix-blend-multiply w-full"
+											src={leetcode}
+											alt="Leetcode icon"
+											aria-label="Julian's Leetcode Account"
+											width={27}
+											height={27}
+											priority
+										/>
+									</div>
+									<div className="relative">
+										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Leetcode
+										</figcaption>
+									</div>
+								</a>
+							</figure>
+						</li>
+						</ol>
+
+					</section>
+				</section>
+				<div className="flex-1 bg-hope-500">1</div>
+				<div className="flex-1 bg-shadow-25">1</div>
 			</div>
 		</>
 	);

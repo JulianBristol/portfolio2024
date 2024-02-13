@@ -24,6 +24,10 @@
   transition: padding 150ms ease-in-out;
 }
 
+.textTransition {
+  transition: font 150ms ease-in-out;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: #D0D9C9;

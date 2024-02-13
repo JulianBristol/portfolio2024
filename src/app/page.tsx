@@ -173,7 +173,7 @@ export default function Home() {
 
 	return (
 		<div
-			className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash leading-5 font-medium"
+			className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash font-medium"
 			ref={containerRef}
 		>
 			{/* On desktop device */}
@@ -202,7 +202,7 @@ export default function Home() {
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh]">
 				<div className="mx-2 py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition">
-					<header className="">
+					<header>
 						<Header />
 					</header>
 					<main>
