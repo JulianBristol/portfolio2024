@@ -29,7 +29,7 @@ const Hero: FC<HeroProps> = ({}) => {
 
 	useEffect(() => {
 		// Get the element with the id "titles"
-		const title = document.getElementById("titles");
+		const titles = document.getElementsByClassName("titles");
 
 		// Function to refresh titles on mouseover or click event
 		const refreshTitles = (event: MouseEvent) => {
@@ -63,16 +63,20 @@ const Hero: FC<HeroProps> = ({}) => {
 		};
 
 		// Attach event listeners if the title element exists
-		if (title) {
-			// Refresh titles on mouseover
-			title.onmouseover = (event: MouseEvent) => {
+		if (titles) {
+			const titleArray = Array.from(titles);
+
+			titleArray.map((title) => {
+				// Refresh titles on mouseover
+				(title as HTMLElement).onmouseover = (event: MouseEvent) => {
 				refreshTitles(event);
 			};
 
 			// Refresh titles on click
-			title.onclick = (event: MouseEvent) => {
+			(title as HTMLElement).onclick = (event: MouseEvent) => {
 				refreshTitles(event);
 			};
+			})
 		}
 	}, []);
 
@@ -85,7 +89,7 @@ const Hero: FC<HeroProps> = ({}) => {
 						Julian Bristol
 					</span>
 				</h1>
-				<p className="mt-4 mx-6 text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] leading-5 sm:leading-tight">
+				<p className="mt-4 mx-6 lg:mx-12 2xl:mx-20 text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] leading-5 sm:leading-tight">
 					I really enjoy turning ideas into reality. I have a passion for
 					learning new skills and applying them in interesting projects.
 				</p>
@@ -139,7 +143,7 @@ const Hero: FC<HeroProps> = ({}) => {
 										}
 									}}
 								>
-									<span id="titles" data-value={myTitles[currentTitle]}>
+									<span className="titles" data-value={myTitles[currentTitle]}>
 										{myTitles[currentTitle]}
 									</span>
 									<span className="blinking">|</span>
@@ -404,7 +408,7 @@ const Hero: FC<HeroProps> = ({}) => {
 									}
 								}}
 							>
-								<span id="titles" data-value={myTitles[currentTitle]}>
+								<span className="titles" data-value={myTitles[currentTitle]}>
 									{myTitles[currentTitle]}
 								</span>
 								<span className="blinking">|</span>
