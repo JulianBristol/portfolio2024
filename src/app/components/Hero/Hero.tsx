@@ -78,15 +78,17 @@ const Hero: FC<HeroProps> = ({}) => {
 
 	return (
 		<>
-		<section className="text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] leading-5 sm:leading-tight textTransition">
-			<h1 className=" my-4 text-center mx-6">
-				Hey, it&apos;s me, <br />
-				<span className="text-[24px] sm:text-[32px] lg:text-[38px] xl:text-[48px] 2xl:text-[58px] textTransition">Julian Bristol</span>
-			</h1>
-			<p className="mt-4 mx-6">
-				I really enjoy turning ideas into reality. I have a passion for learning
-				new skills and applying them in interesting projects.
-			</p>
+			<section className="text-[24px] sm:text-[32px] lg:text-[38px] xl:text-[48px] 2xl:text-[56px] leading-7 sm:leading-tight textTransition">
+				<h1 className=" my-4 text-center mx-6">
+					Hey, it&apos;s me, <br />
+					<span className="text-[32px] sm:text-[38px] lg:text-[48px] xl:text-[56px] 2xl:text-[64px] textTransition">
+						Julian Bristol
+					</span>
+				</h1>
+				<p className="mt-4 mx-6 text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] leading-5 sm:leading-tight">
+					I really enjoy turning ideas into reality. I have a passion for
+					learning new skills and applying them in interesting projects.
+				</p>
 			</section>
 
 			{/* Mobile View */}
@@ -269,7 +271,7 @@ const Hero: FC<HeroProps> = ({}) => {
 										<Image
 											className="mix-blend-multiply"
 											src={linkedIn}
-											alt="LinkIn Icon"
+											alt="LinkedIn Icon"
 											aria-label="Julian's LinkedIn Account"
 											width={27}
 											height={27}
@@ -287,89 +289,199 @@ const Hero: FC<HeroProps> = ({}) => {
 					</ol>
 				</section>
 			</div>
-			
+
 			{/* Desktop View */}
 			<div className="hidden xs:flex flex-row justify-center mx-4 mt-12 sm:text-[24px] lg:text-[32px] xl:text-[38px] 2xl:text-[48px] textTransition">
-				<section className="flex flex-col flex-1 mx-4">
-					<section className="flex flex-col">
+				<section className="mx-4 flex flex-col flex-1">
+					<section className="mx-4 flex flex-col">
 						<p>Learn more</p>
 						<a
 							href="#about"
-							className="bg-morocco mt-4 mb-2 p-2 py-[2px] lg:py-2 rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							className="bg-morocco mt-4 mb-2 px-2 py-[2px] sm:px-3 lg:px-4 lg:py-2 rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
 						>
 							About Me
 						</a>
 						<hr className="text-smoke my-2 w-[75%] self-center" />
 					</section>
 					<section className="flex flex-col mt-4 mb-6">
-						<p>Check out my</p>
+						<p className="sm:ml-[5%] xl:ml-[15%]">Check out my</p>
 						<a
 							href="#portfolio"
-							className="bg-morocco my-4  px-2 py-[2px] rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+							className="bg-morocco my-4 mr-[10px] sm:mr-[5%] xl:mr-[15%] px-2 py-[2px] sm:px-3 lg:px-4 rounded-md w-fit self-end transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
 						>
 							Portfolio
 						</a>
 					</section>
-					<section className="mx-4 my-2">
-					<ol className="flex flex-row justify-evenly text-hope-500 gap-5">
-						<li className="w-full">
-							<figure className="flex justify-center">
-								<a
-									href="https://github.com/JulianBristol"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="flex flex-col items-center group w-[50%]"
-								>
-									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
-										<Image
-											className="mix-blend-multiply w-full"
-											src={github}
-											alt="Github Icon"
-											aria-label="Julian's Github Account"
-											priority
-										/>
-									</div>
-									<div className="relative">
-										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
-											Github
-										</figcaption>
-									</div>
-								</a>
-							</figure>
-						</li>
-						<li className="w-full">
-							<figure className="flex justify-center">
-								<a
-									href="https://leetcode.com/BristolJ/"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="flex flex-col items-center group w-[50%]"
-								>
-									<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
-										<Image
-											className="mix-blend-multiply w-full"
-											src={leetcode}
-											alt="Leetcode icon"
-											aria-label="Julian's Leetcode Account"
-											width={27}
-											height={27}
-											priority
-										/>
-									</div>
-									<div className="relative">
-										<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
-											Leetcode
-										</figcaption>
-									</div>
-								</a>
-							</figure>
-						</li>
+					<section className="my-2">
+						<ol className="flex flex-row justify-evenly text-hope-500 gap-5">
+							<li className="w-full">
+								<figure className="flex justify-center">
+									<a
+										href="https://github.com/JulianBristol"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex flex-col items-center group w-full"
+									>
+										<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full sm:w-[90%] max-w-[100px]">
+											<Image
+												className="mix-blend-multiply w-full"
+												src={github}
+												alt="Github Icon"
+												aria-label="Julian's Github Account"
+												priority
+											/>
+										</div>
+										<div className="relative">
+											<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+												Github
+											</figcaption>
+										</div>
+									</a>
+								</figure>
+							</li>
+							<li className="w-full">
+								<figure className="flex justify-center">
+									<a
+										href="https://leetcode.com/BristolJ/"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex flex-col items-center group w-full sm:w-[90%] max-w-[100px]"
+									>
+										<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
+											<Image
+												className="mix-blend-multiply w-full"
+												src={leetcode}
+												alt="Leetcode icon"
+												aria-label="Julian's Leetcode Account"
+												width={27}
+												height={27}
+												priority
+											/>
+										</div>
+										<div className="relative">
+											<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+												Leetcode
+											</figcaption>
+										</div>
+									</a>
+								</figure>
+							</li>
 						</ol>
-
 					</section>
 				</section>
-				<div className="flex-1 bg-hope-500">1</div>
-				<div className="flex-1 bg-shadow-25">1</div>
+				<div className="flex-1">
+					{/* image */}
+					<div className="rounded-[50px] w-full h-full max-w-[700px] m-auto relative overflow-hidden border-ghost border-[1.5px] shadow-md shadow-shadow-25">
+						<Image
+							src={bokeh}
+							alt="Personal Image background"
+							priority
+							fill
+							sizes="(max-width: 320px) 45vw, 60vw"
+							className="object-cover"
+						/>
+						<Image
+							src={profileImg}
+							alt="Image of Julian Bristol"
+							priority
+							fill
+							sizes="(max-width: 320px) 45vw, 60vw"
+							className="object-contain !top-6 scale-150"
+						/>
+					</div>
+				</div>
+				<section className="flex flex-col flex-1 mx-4">
+					<section className="flex flex-col">
+						<p className="text-center relative">
+							<span className="absolute top-[-24px] lg:top-[-36px] xl:top-[-42px] 2xl:top-[-48px] ml-[45%] sm:ml-[40%]">I am a...</span>
+							<span
+								className="ml-[20%] text-[12px] sm:text-[18px] lg:text-[28px] xl:text-[36px] 2xl:text-[42px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer"
+								onClick={() => {
+									if (currentTitle >= myTitles.length - 1) {
+										setCurrentTitle(0);
+									} else {
+										setCurrentTitle(currentTitle + 1);
+									}
+								}}
+							>
+								<span id="titles" data-value={myTitles[currentTitle]}>
+									{myTitles[currentTitle]}
+								</span>
+								<span className="blinking">|</span>
+							</span>
+						</p>
+						<a
+							href="#history"
+							className="bg-morocco mt-4 mb-2 px-2 py-[2px] sm:px-3 lg:px-4 lg:py-2 rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+						>
+							History
+						</a>
+						<hr className="text-smoke my-2 w-[75%] self-center" />
+					</section>
+					<section className="flex flex-col mt-4 mb-4">
+						<p className="text-right sm:mr-[5%] xl:mr-[15%]">You can also</p>
+						<a
+							href="#contact"
+							className="bg-morocco my-4 ml-[10px] sm:ml-[5%] xl:ml-[15%] px-2 py-[2px] sm:px-3 lg:px-4 rounded-md w-fit self-start transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco"
+						>
+							Contact Me
+						</a>
+					</section>
+					<section className="my-2">
+						<ol className="flex flex-row justify-evenly text-hope-500 gap-5">
+							<li className="w-full">
+								<figure className="flex justify-center">
+									<a
+										href="/resume.pdf"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex flex-col items-center group w-full sm:w-[90%] max-w-[100px]"
+									>
+										<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
+											<Image
+												className="mix-blend-multiply w-full"
+												src={portfolio}
+												alt="Portfolio Icon"
+												aria-label="See Julian's résumé"
+												priority
+											/>
+										</div>
+										<div className="relative">
+											<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											Résumé
+											</figcaption>
+										</div>
+									</a>
+								</figure>
+							</li>
+							<li className="w-full">
+								<figure className="flex justify-center">
+									<a
+										href="https://www.linkedin.com/in/julianbristol/"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex flex-col items-center group w-full sm:w-[90%] max-w-[100px]"
+									>
+										<div className="transition-all p-[2px] bg-transparent border-transparent group-hover:bg-hope-100 group-hover:border-hope-500 border-[1px] rounded-md w-full">
+											<Image
+												className="mix-blend-multiply w-full"
+												src={linkedIn}
+												alt="LinkedIn Icon"
+												aria-label="Julian's LinkedIn Account"
+												priority
+											/>
+										</div>
+										<div className="relative">
+											<figcaption className="group-hover:font-bold transition-all absolute left-[50%] translate-x-[-50%]">
+											LinkedIn
+											</figcaption>
+										</div>
+									</a>
+								</figure>
+							</li>
+						</ol>
+					</section>
+				</section>
 			</div>
 		</>
 	);
