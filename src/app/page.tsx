@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import { useEffect, useRef, useState } from "react";
 import Hero from "./components/Hero/Hero";
 import innerCircle from "./assets/innerCircle.svg";
+import LetsMakeSomethingMagical from "./components/LetsMakeSomethingMagical/LetsMakeSomethingMagical";
 
 export default function Home() {
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -206,17 +207,21 @@ export default function Home() {
 						<Header />
 					</header>
 					<main>
-						<section>
+
 							{/* hero section */}
-							{/* h1 - Hey, its me Julian bristol */}
+						<section className="mb-20">
 							<Hero />
 						</section>
-						<section id="about">
+						{/* Let's make something magical */}
+						<section>
+							<LetsMakeSomethingMagical />
+						</section>
 							{/* about me section */}
+						<section id="about">
 							{/* h2 - Who is Julian */}
 						</section>
-						<section id="history">
 							{/* history section */}
+						<section id="history">
 							{/* h2 - History */}
 						</section>
 						<section id="tech">
