@@ -1,8 +1,45 @@
-#outlineText path:nth-child(1){
-    stroke-dasharray: 1619.689453125;
-    stroke-dashoffset: 1000.689453125;
+#fullText path{
+    stroke-dasharray: 1181.1544189453125;
+    stroke-dashoffset: 1181.1544189453125;
+    animation: outlineAnimation 8s linear infinite;
 }
-#fullText path:nth-child(1){
-    stroke-dasharray: 809.9430541992188;
-    stroke-dashoffset: 0.689453125;
+@keyframes outlineAnimation{
+    0% {
+        stroke-dashoffset: 1181.1544189453125;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -1181.1544189453125;
+    }
+}
+#fullText path:nth-child(7){
+    stroke-dasharray: 4724.61767578;
+    stroke-dashoffset: 4724.61767578;
+    animation: outlineAnimationM 8s linear infinite;
+}
+@keyframes outlineAnimationM{
+    
+    0% {
+        stroke-dashoffset: 4724.61767578;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -4724.61767578;
+    }
 }

@@ -18,6 +18,7 @@ const LetsMakeSomethingMagical: FC<LetsMakeSomethingMagicalProps> = ({}) => {
 			<svg
 				className="w-full h-full px-4 mt-4"
 				id="fullText"
+                aria-label="Magical"
 				width="1110"
 				height="249"
 				viewBox="0 0 1110 249"
@@ -67,6 +68,7 @@ const LetsMakeSomethingMagical: FC<LetsMakeSomethingMagicalProps> = ({}) => {
 					strokeWidth={2}
 				/>
 			</svg>
+            
 		</>
 	);
 };
