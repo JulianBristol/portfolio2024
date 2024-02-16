@@ -16,12 +16,11 @@ const LetsMakeSomethingMagical: FC<LetsMakeSomethingMagicalProps> = ({}) => {
 			<p className="text-[15vw] text-center">Something</p>
 
 			<svg
-				className="w-full h-full px-4 mt-4"
+				className="w-full h-full px-4 pt-4"
 				id="fullText"
-                aria-label="Magical"
-				width="1110"
-				height="249"
-				viewBox="0 0 1110 249"
+				aria-label="Magical"
+				aria-description="the text is displayed as an outline of the word magical. As time goes by, the text's outline is progressively erased from one side to the other. Just as quickly, it is redrawn."
+				viewBox="0 0 1110 255"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
@@ -68,7 +67,6 @@ const LetsMakeSomethingMagical: FC<LetsMakeSomethingMagicalProps> = ({}) => {
 					strokeWidth={2}
 				/>
 			</svg>
-            
 		</>
 	);
 };

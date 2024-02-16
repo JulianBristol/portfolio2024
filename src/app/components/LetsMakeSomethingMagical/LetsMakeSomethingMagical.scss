@@ -1,7 +1,7 @@
 #fullText path{
     stroke-dasharray: 1181.1544189453125;
     stroke-dashoffset: 1181.1544189453125;
-    animation: outlineAnimation 8s linear infinite;
+    animation: outlineAnimation 6s linear infinite;
 }
 @keyframes outlineAnimation{
     0% {
@@ -23,7 +23,7 @@
 #fullText path:nth-child(7){
     stroke-dasharray: 4724.61767578;
     stroke-dashoffset: 4724.61767578;
-    animation: outlineAnimationM 8s linear infinite;
+    animation: outlineAnimationM 6s linear infinite;
 }
 @keyframes outlineAnimationM{
     

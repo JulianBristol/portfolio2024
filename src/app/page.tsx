@@ -6,10 +6,51 @@ import { useEffect, useRef, useState } from "react";
 import Hero from "./components/Hero/Hero";
 import innerCircle from "./assets/innerCircle.svg";
 import LetsMakeSomethingMagical from "./components/LetsMakeSomethingMagical/LetsMakeSomethingMagical";
+import About from "./components/About/About";
+import Lenis from '@studio-freight/lenis'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 export default function Home() {
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
 	const [toggleCursor, setToggleCursor] = useState(false);
+
+	/* Add Smooth Scrolling to links */
+	useEffect(() => {
+		document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+			const anchorElement = anchor as HTMLAnchorElement;
+
+			anchorElement.addEventListener("click", (e: Event) => {
+				e.preventDefault();
+
+				const href = anchorElement.getAttribute("href");
+
+				if (href) {
+					const targetId = href.substring(1);
+					const targetElement = document.getElementById(targetId);
+
+					if (targetElement) {
+						targetElement.scrollIntoView({
+							behavior: "smooth",
+						});
+					}
+				}
+			});
+		});
+	}, []);
+
+	/* Setup Lenis - Smooth Scroll */
+	useEffect(() => {
+		const lenis = new Lenis();
+
+		lenis.on("scroll", ScrollTrigger.update);
+
+		gsap.ticker.add((time) => {
+			lenis.raf(time * 1000);
+		});
+
+		gsap.ticker.lagSmoothing(0);
+	}, []);
 
 	/* Setup AnimeJS */
 	useEffect(() => {
@@ -17,17 +58,20 @@ export default function Home() {
 			duration: 150, //in milliseconds
 			easing: "easeOutExpo",
 		});
-		timeline.add({
-			/* Adds stroke-width change to the id outerCursorPath based on the toggleCursor useState */
-			targets: "#outerCursorPath",
-			strokeWidth: [{ value: `${toggleCursor ? "1" : "0.5"}` }],
-		})
-		.add({
-			/* Adds viewbox change to the id cursor-outer based on the toggleCursor useState */
-			targets: "#cursor-outer",
-			viewBox: [{ value: `${toggleCursor ? "-0.5 -0.5 15 15" : "0 0 14 14"}` }],
-		});
-	},[toggleCursor])
+		timeline
+			.add({
+				/* Adds stroke-width change to the id outerCursorPath based on the toggleCursor useState */
+				targets: "#outerCursorPath",
+				strokeWidth: [{ value: `${toggleCursor ? "1" : "0.5"}` }],
+			})
+			.add({
+				/* Adds viewbox change to the id cursor-outer based on the toggleCursor useState */
+				targets: "#cursor-outer",
+				viewBox: [
+					{ value: `${toggleCursor ? "-0.5 -0.5 15 15" : "0 0 14 14"}` },
+				],
+			});
+	}, [toggleCursor]);
 
 	/* Use event delegation so that each link and button has the effect */
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -207,31 +251,35 @@ export default function Home() {
 						<Header />
 					</header>
 					<main>
-
-							{/* hero section */}
+						{/* hero section */}
 						<section className="mb-20">
 							<Hero />
 						</section>
+
 						{/* Let's make something magical */}
 						<section>
 							<LetsMakeSomethingMagical />
 						</section>
-							{/* about me section */}
-						<section id="about">
-							{/* h2 - Who is Julian */}
+
+						{/* about me section */}
+						<section id="about" className="mt-[16vh]">
+							<About />
 						</section>
-							{/* history section */}
-						<section id="history">
-							{/* h2 - History */}
-						</section>
+
+						{/* history section */}
+						<section id="history">{/* h2 - History */}</section>
+
 						<section id="tech">
 							{/* technologies that I am skilled in section */}
 							{/* h2 - Technologies */}
+							<div className="my-[999px]"/>
 						</section>
+
 						<section id="portfolio">
 							{/* Portfolio items that I have created section */}
 							{/* h2 - Portfolio */}
 						</section>
+
 						<section id="contact">
 							{/* contact julian form section
             ps. don't forget the accessibility requirements for form elements
