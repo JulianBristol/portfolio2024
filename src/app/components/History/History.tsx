@@ -1,155 +1,60 @@
-import React, { FC } from 'react'
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/style.min.css';
+import React, { FC } from "react";
+import {
+	VerticalTimeline,
+	VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 import { Experiences } from "@/types/index";
 import { experiences } from "../../constants/index";
+import Image from "next/image";
+import "./History.scss"
 
-interface HistoryProps {
-  
-}
+interface HistoryProps {}
 
 interface ExperienceCardProps {
-  experience: Experiences;
+	experience: Experiences;
 }
 
 const ExperienceCard: FC<ExperienceCardProps> = ({ experience }) => (
-    <VerticalTimelineElement className='timelineElementCard'
-    date={experience.date}
-    iconStyle={{ background: /* experience.iconBG */ "#FF0000" }}
-    icon={
-        <div className='xpIcon'>
-            {/* <img
+	<VerticalTimelineElement
+		date={experience.date}
+		dateClassName="text-hope-500 !opacity-100 !text-[14pt] !font-bold"
+		iconStyle={{ background: "#141414" }}
+		icon={
+			<div className="border-2 border-transparent rounded-full">
+				<Image
             src={experience.icon}
             alt={experience.companyName}
-            className='xpIconIMG'
-            /> */}
-        </div>
-    }
-    >
-        <div>
-            <h3 className='xpCardTitle'>
-                {experience.title}
-            </h3>
-            <p className='xpCardName'>{experience.companyName}</p>
-            <ul className='xpListContainer'>
-                {experience.points.map((point, key) => (
-                    <li
-                    key={`experience_point_${key}`}
-                    className='XPListElem'
-                    >
-                        {point}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    </VerticalTimelineElement>
-  );
+            className='w-full'
+            />
+			</div>
+		}
+	>
+		<section className="timelineElementCard text-ash">
+			<h3 className="text-[16px] font-bold">{experience.title}</h3>
+			<p className="!mt-0 !ml-2 !mb-2">{experience.companyName}</p>
+			<ul className="mx-4 list-disc">
+				{experience.points.map((point, key) => (
+					<li key={`experience_point_${key}`} className="XPListElem">
+						{point}
+					</li>
+				))}
+			</ul>
+		</section>
+	</VerticalTimelineElement>
+);
 
 const History: FC<HistoryProps> = ({}) => {
-  return (
-    <>
-    <h2>My History</h2>
-    <VerticalTimeline lineColor=''>
-            {/* {experiences.map((experience, key) => {
-                
-                /* console.log(experience); 
-                return <ExperienceCard key={key} experience={experience} />;
-            }
-            )} */}
-            <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-    date="2011 - present"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+	return (
+		<>
+			<h2 className="mb-4 text-hope-500 text-center text-[48px] sm:text-[56px] lg:text-[64px] xl:text-[72px] 2xl:text-[84px] textTransition">My History</h2>
+			<VerticalTimeline lineColor="" animate={false}>
+				{experiences.map((experience, key) => (
+					<ExperienceCard key={key} experience={experience} />
+				))}
+			</VerticalTimeline>
+		</>
+	);
+};
 
-    /* icon={<WorkIcon />} */
-  >
-    <h3 className="vertical-timeline-element-title">Creative Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-    </p>
-  </VerticalTimelineElement>
-  {/* <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2010 - 2011"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    icon={<WorkIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Art Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2008 - 2010"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    icon={<WorkIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2006 - 2008"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    icon={<WorkIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="April 2013"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-    icon={<SchoolIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Content Marketing for Web, Mobile and Social Media</h3>
-    <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-    <p>
-      Strategy, Social Media
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="November 2012"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-    icon={<SchoolIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Agile Development Scrum Master</h3>
-    <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="2002 - 2006"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-    icon={<SchoolIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">Bachelor of Science in Interactive Digital Media Visual Imaging</h3>
-    <h4 className="vertical-timeline-element-subtitle">Bachelor Degree</h4>
-    <p>
-      Creative Direction, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-    icon={<StarIcon />}
-  /> */}
-
-        </VerticalTimeline>
-        </>
-)}
-
-export default History
+export default History;
