@@ -1,3 +1,13 @@
 .displacement {
     filter: url(#displacementFilter);
 }
+
+.outlineText {
+    -webkit-text-stroke-width: 0.5px;
+  /* -webkit-text-stroke-color: #FBF7ED; */
+  text-shadow:
+    1px 1px 3px #FBF7ED,
+    -1px 1px 3px #FBF7ED,
+    -1px -1px 3px #FBF7ED,
+    1px -1px 3px #FBF7ED;
+}

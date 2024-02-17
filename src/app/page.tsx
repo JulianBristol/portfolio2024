@@ -10,6 +10,7 @@ import About from "./components/About/About";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import History from "./components/History/History";
 
 export default function Home() {
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -267,7 +268,9 @@ export default function Home() {
 						</section>
 
 						{/* history section */}
-						<section id="history">{/* h2 - History */}</section>
+						<section id="history">
+							<History />
+							</section>
 
 						<section id="tech">
 							{/* technologies that I am skilled in section */}
