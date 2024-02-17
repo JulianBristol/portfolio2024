@@ -26,6 +26,7 @@ const config: Config = {
       'morocco': '#DCA75E',
       'creme': '#FBF7ED',
       'smoke': '#C8C8C6',
+      'untouched': '#1C201D',
       'hope': {
         100: '#D0D9C9',
         300: '#90AF99',

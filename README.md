@@ -29,6 +29,7 @@ This project is licensed under the [MIT License](https://opensource.org/license/
 
 ## 🙌 Acknowledgments
 Special thanks to [Hyperplexed](https://www.youtube.com/watch?v=W5oawMJaXbU&ab_channel=Hyperplexed) for his help and the inspiration on the text shuffle effect.
+Thank you to [Manoela Ilic](https://tympanus.net/Development/OnScrollFilter/) for providing the inspiration for the distortion effect.
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

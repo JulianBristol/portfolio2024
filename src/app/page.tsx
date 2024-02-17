@@ -7,7 +7,7 @@ import Hero from "./components/Hero/Hero";
 import innerCircle from "./assets/innerCircle.svg";
 import LetsMakeSomethingMagical from "./components/LetsMakeSomethingMagical/LetsMakeSomethingMagical";
 import About from "./components/About/About";
-import Lenis from '@studio-freight/lenis'
+import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -272,7 +272,7 @@ export default function Home() {
 						<section id="tech">
 							{/* technologies that I am skilled in section */}
 							{/* h2 - Technologies */}
-							<div className="my-[999px]"/>
+							<div className="my-[999px]" />
 						</section>
 
 						<section id="portfolio">

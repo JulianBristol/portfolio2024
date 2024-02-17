@@ -2,11 +2,54 @@ import React, { FC, useEffect } from "react";
 import "./About.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import StaggeredGrid from "../Staggered Grid Effect/StaggeredGrid";
 
 interface AboutProps {}
 
 const About: FC<AboutProps> = ({}) => {
-    /* Todo: bugfix. Saw and issue with where the extention originates from after switching form small mobile to large screen */
+
+    useEffect(() => {
+        const scrollTarget = document.getElementById("scrollTarget");
+        if (scrollTarget) {
+            const handleMouseDown = (e:MouseEvent) => {
+                const clickTarget = document.elementsFromPoint(e.clientX, e.clientY) as HTMLElement[];
+                const rippleLocation = clickTarget.find((element) => {
+                    if (element.className === "tile"){
+                        element.click();
+                    }
+                })
+            };
+    
+            scrollTarget.addEventListener('mousedown', handleMouseDown, false);
+    
+            // Cleanup function to remove event listeners when component unmounts
+            return () => {
+                scrollTarget.removeEventListener('mousedown', handleMouseDown);
+            };
+        }
+    }, []);
+
+
+
+    /* useEffect(() => {
+        const scrollTarget = document.getElementById("scrollTarget");
+        if (scrollTarget){
+            scrollTarget.addEventListener('mousedown', (e) => {
+                scrollTarget.style.pointerEvents = "none";
+                const clickTarget = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement
+                if (clickTarget){
+                    clickTarget.click();
+                }
+            }, false);
+            scrollTarget.addEventListener('mouseup', (e) => {
+                scrollTarget.style.pointerEvents = "all";
+            }, false);
+
+            scrollTarget.addEventListener('touchstart', (e) => {
+                scrollTarget.style.pointerEvents = "all";
+            }, false);
+        }
+    },[]) */
 	/* Setup GSAP */
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -61,13 +104,12 @@ const About: FC<AboutProps> = ({}) => {
 
 	return (
 		<div className="relative px-2 sm:px-4 lg:px-8">
-            <div className="max-h-[80vh]">
+            <div className="max-h-[80vh] cursor-pointer">
                 <svg
                 height="80vh"
                 width="100%"
-				className="my-[10vh]"
-				viewBox="0 0 896 1000"
-				preserveAspectRatio="xMidYMin slice"
+                className="my-[10vh]"
+                xmlns="http://www.w3.org/2000/svg"
 			>
 				<defs>
                     {/* Distortion effect */}
@@ -106,19 +148,55 @@ const About: FC<AboutProps> = ({}) => {
 					width="100%"
 					height="100%"
 					mask="url(#circleMask)"
+                    className="rounded-2xl"
 				>
-					<div className="bg-poppy h-full text-[24px]">
-                        <p>Hey, Julian here!</p>
-                        <p>As you can see, I really enjoy turning ideas into reality. My interest in web development started all the way back in 2006 where I was first introduced to MySpace&apos;s custom layouts. At the time, I didn&apos;t know what I was doing or even that I was using HTML and CSS. All I knew was &quot;this thingie does that thing &quot; 🤷🏿‍♂️<span>-Amazing, I know!</span></p>
-                        <p>I think my time playing around in MySpace paid off. It seems that I&apos;ve passively absorbed many skills and tricks with CSS and HTML. When it came time to formally learn frontend development, the two languages came to me naturally. This allowed me to focus more on understanding JavaScript.</p>
-                        <p>So far, I have had the privilege to collaborate with so many interesting and informative people across several companies and projects. I am happy to state that each interaction has taught me something not only about design, programming, and the development process, but also about myself. Now, I endeavor to find inspiration and learning from the unlikeliest of sources.</p>
-                    </div>
+					<StaggeredGrid />
+				</foreignObject>
+				<foreignObject
+					x="0"
+					y="0"
+					width="100%"
+					height="100%"
+					mask="url(#circleMask)"
+                    className="relative pointer-events-none"
+				>
+					<div className="mx-4 rounded-2xl border-4 border-untouched flex absolute max-h-[70vh] top-[50%] translate-y-[-50%]">
+				<div id="scrollTarget" className="m-[2px] p-4 rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-auto">
+					<p>Hey, Julian here!</p>
+					<p>
+						As you can see, I really enjoy turning ideas into reality. My
+						interest in web development started all the way back in 2006 where I
+						was first introduced to MySpace&apos;s custom layouts. At the time,
+						I didn&apos;t know what I was doing or even that I was using HTML
+						and CSS. All I knew was &quot;this thingie makes that thing change
+						colors&quot; 🤷🏿‍♂️
+						<span>
+							<i className="text-[16px] text-marigold">-Amazing, I know!</i>
+						</span>
+					</p>
+					<p>
+						I think my time playing around in MySpace paid off. It seems that
+						I&apos;ve passively absorbed many skills and tricks with CSS and
+						HTML. When it came time to formally learn frontend development, the
+						two languages came to me naturally. This allowed me to focus more on
+						understanding JavaScript.
+					</p>
+					<p>
+						So far, I have had the privilege to collaborate with so many
+						interesting and informative people across several companies and
+						projects. I am happy to state that each interaction has taught me
+						something not only about design, programming, and the development
+						process, but also about myself. Now, I endeavor to find inspiration
+						and learning from the unlikeliest of sources.
+					</p>
+				</div>
+			</div>
 				</foreignObject>
 			</svg>
             </div>
 			
             {/* Box that receives the expanding effect and moves the text */}
-			<div className="expandingText w-0 h-0 max-w-[90%] max-h-[calc(100%+10vh)] absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]">
+			<div className="expandingText w-0 h-0 max-w-[90%] max-h-[calc(100%+10vh)] absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] pointer-events-none">
 				<p className="absolute top-[-10vw] left-0 text-[10vw]">Julian</p>
 				<p className="absolute bottom-[-10vw] right-0 text-[10vw]">Bristol</p>
                 {/* Marker for when to move the expanding text and circle distortion mask */}
