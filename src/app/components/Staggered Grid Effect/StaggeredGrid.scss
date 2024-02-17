@@ -35,7 +35,9 @@
     background-color: #141414;
     position: absolute;
     inset: 0.5px;
+    transition: opacity 0.5s linear;
 }
-.tile:hover{
+.tile:hover::before{
     opacity: 0.85;
+    transition: opacity 0s ease-out;
 }

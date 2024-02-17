@@ -13,6 +13,13 @@ import gsap from "gsap";
 import History from "./components/History/History";
 
 export default function Home() {
+	/* TODO: Change the cursor size based on screen size
+	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
+	General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
+
+	BugFix: there is an issue when you change the screen size and then click inside the about me section. This is likely due to a failure to recalculate the grid sections in animejs
+	
+	*/
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
 	const [toggleCursor, setToggleCursor] = useState(false);
 
@@ -268,22 +275,21 @@ export default function Home() {
 						</section>
 
 						{/* history section */}
-						<section id="history">
+						<section id="history" className="mt-[160px] md:mt-[180px] lg:mt-[220px]">
 							<History />
 							</section>
 
-						<section id="tech">
+						<section id="tech"  className="mt-[16vh]">
 							{/* technologies that I am skilled in section */}
 							{/* h2 - Technologies */}
-							<div className="my-[999px]" />
 						</section>
 
-						<section id="portfolio">
+						<section id="portfolio" className="mt-[16vh]">
 							{/* Portfolio items that I have created section */}
 							{/* h2 - Portfolio */}
 						</section>
 
-						<section id="contact">
+						<section id="contact" className="mt-[16vh]">
 							{/* contact julian form section
             ps. don't forget the accessibility requirements for form elements
             */}
