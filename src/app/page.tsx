@@ -282,7 +282,7 @@ export default function Home() {
 							</section>
 
 							{/* Technologies section */}
-						<section id="tech"  className="mt-[40px] md:mt-[60px] lg:mt-[80px]">
+						<section id="tech"  className="mt-[40px] md:mt-[60px] lg:mt-[80px] mx-2 md:mx-4">
 							<Technologies />
 						</section>
 
