@@ -13,20 +13,20 @@ interface TechCardProps {
 
 const TechCard: FC<TechCardProps> = ({ technology }) => {
 	return (
-		<div
-						className="tilt techBadge w-[130px] md:w-[200px] rounded-2xl border-2 border-hope-500 bg-creme p-4">
-						<div className="h-full flex flex-col">
-							<Image
-								src={technology.icon}
-								alt={technology.name}
-								className="w-full hidden sm:block"
-
-							/>
-							<p className="text-hope-500 text-center sm:mt-2 text-[16px] sm:text-[16px] md:text-[24px] font-bold">{technology.name}</p>
-						</div>
-					</div>
-	)
-}
+		<div className="tilt techBadge w-[130px] md:w-[200px] rounded-2xl border-2 border-hope-500 bg-creme p-4">
+			<div className="h-full flex flex-col">
+				<Image
+					src={technology.icon}
+					alt={technology.name}
+					className="w-full hidden sm:block"
+				/>
+				<p className="text-hope-500 text-center sm:mt-2 text-[16px] sm:text-[16px] md:text-[24px] font-bold">
+					{technology.name}
+				</p>
+			</div>
+		</div>
+	);
+};
 
 const Technologies: FC<TechnologiesProps> = ({}) => {
 	useEffect(() => {

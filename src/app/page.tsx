@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import History from "./components/History/History";
 import Technologies from "./components/Technologies/Technologies";
+import Contact from "./components/Contact/Contact";
 
 export default function Home() {
 	/* TODO: Change the cursor size based on screen size
@@ -227,6 +228,7 @@ export default function Home() {
 	}, [isTouchDevice]);
 
 	return (
+		<div>
 		<div
 			className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash font-medium"
 			ref={containerRef}
@@ -291,16 +293,19 @@ export default function Home() {
 							{/* h2 - Portfolio */}
 						</section>
 
-						<section id="contact" className="mt-[16vh]">
-							{/* contact julian form section
-            ps. don't forget the accessibility requirements for form elements
-            */}
-							{/* h2 - Contact me */}
-						</section>
+						
 					</main>
 					<footer>{/* if I have  one... */}</footer>
 				</div>
 			</div>
+		</div>
+		<div className="fadeB4Contact w-full h-[20px] absolute mt-[-20px]"/>
+		<section id="contact">
+							{/* contact julian form section
+            ps. don't forget the accessibility requirements for form elements
+            */}
+							<Contact />
+						</section>
 		</div>
 	);
 }

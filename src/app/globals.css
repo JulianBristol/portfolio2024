@@ -74,6 +74,18 @@ a:focus-visible {
   background-image: url("assets/cubes2.png");
 }
 
+.fadeB4Contact {
+  background: #246036;
+background: -webkit-linear-gradient(180deg, #24603600 10%, #246036 30%);
+background: linear-gradient(180deg, #24603600 10%, #246036 30%);
+}
+
+#contact {
+  background: #246036;
+background: -webkit-linear-gradient(0deg, #0d2113 0%, #246036 100%);
+background: linear-gradient(0deg, #0d2113 0%, #246036 100%);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
