@@ -73,11 +73,11 @@ const technologies = [
     icon: java,
   },
   {
-    name: 'git',
+    name: 'Git',
     icon: git,
   },
   {
-    name: 'figma',
+    name: 'Figma',
     icon: figma,
   },
 ];

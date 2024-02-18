@@ -28,7 +28,7 @@ I believe in creating designs that not only look visually appealing but also pro
 This project is licensed under the [MIT License](https://opensource.org/license/mit/) - Feel free to explore the code, provide feedback, or even use this as a template for your own portfolio. The only thing that I ask is that you credit and link me in your work and if you have a LinkedIn [add me](https://www.linkedin.com/in/julianbristol/) and tell me how you used my work for inspiration/help on your projects. Happy coding! 🚀
 
 ## 🙌 Acknowledgments
-Special thanks to [Hyperplexed](https://www.youtube.com/watch?v=W5oawMJaXbU&ab_channel=Hyperplexed) for his help and the inspiration on the text shuffle effect.
+Special thanks to [Hyperplexed](https://www.youtube.com/@Hyperplexed) for his help and the inspiration on the [text shuffle effect](https://www.youtube.com/watch?v=W5oawMJaXbU&ab_channel=Hyperplexed) and the [staggered grid effect](https://www.youtube.com/watch?v=bAwEj_mSzOs&ab_channel=Hyperplexed).
 Thank you to [Manoela Ilic](https://tympanus.net/Development/OnScrollFilter/) for providing the inspiration for the distortion effect.
 
 ## Getting Started

@@ -11,11 +11,13 @@ import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import History from "./components/History/History";
+import Technologies from "./components/Technologies/Technologies";
 
 export default function Home() {
 	/* TODO: Change the cursor size based on screen size
 	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
 	General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
+	Add header scroll effect
 
 	BugFix: there is an issue when you change the screen size and then click inside the about me section. This is likely due to a failure to recalculate the grid sections in animejs
 	
@@ -279,9 +281,9 @@ export default function Home() {
 							<History />
 							</section>
 
-						<section id="tech"  className="mt-[16vh]">
-							{/* technologies that I am skilled in section */}
-							{/* h2 - Technologies */}
+							{/* Technologies section */}
+						<section id="tech"  className="mt-[40px] md:mt-[60px] lg:mt-[80px]">
+							<Technologies />
 						</section>
 
 						<section id="portfolio" className="mt-[16vh]">

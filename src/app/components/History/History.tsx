@@ -48,7 +48,7 @@ const History: FC<HistoryProps> = ({}) => {
 	return (
 		<>
 			<h2 className="mb-4 text-hope-500 text-center text-[48px] sm:text-[56px] lg:text-[64px] xl:text-[72px] 2xl:text-[84px] textTransition">My History</h2>
-			<VerticalTimeline lineColor="" animate={false}>
+			<VerticalTimeline lineColor="">
 				{experiences.map((experience, key) => (
 					<ExperienceCard key={key} experience={experience} />
 				))}
