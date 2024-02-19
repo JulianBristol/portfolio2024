@@ -148,12 +148,12 @@ const About: FC<AboutProps> = ({}) => {
 						width="100%"
 						height="100%"
 						mask="url(#circleMask)"
-						className="relative pointer-events-none"
+						className="p-4 relative pointer-events-none"
 					>
-						<div className="mx-4 rounded-2xl border-4 border-untouched flex absolute max-h-[70vh] top-[50%] translate-y-[-50%]">
+						<div className="m-auto absolute inset-4 rounded-2xl border-4 border-untouched flex w-fit h-fit">
 							<div
 								id="scrollTarget"
-								className="m-[2px] p-4 rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-auto"
+								className="m-[2px] p-4 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-auto"
 							>
 								<p>Hey, Julian here!</p>
 								<p>

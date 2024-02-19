@@ -18,9 +18,7 @@ import Portfolio from "./components/Portfolio/Portfolio";
 export default function Home() {
 	/* TODO: 
 	* Change the cursor size based on screen size
-	* App should watch for "magical" and then draw it on the page. when the user scrolls back up, it undraws it. Then the cycle starts again
 	Add header scroll effect
-	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
 	consider making another screen break for smaller than 320px for the hero section
 	consider adding a onClick for the technology badges
 	
