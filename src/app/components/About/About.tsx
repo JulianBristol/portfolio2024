@@ -30,26 +30,7 @@ const About: FC<AboutProps> = ({}) => {
 			};
 		}
 	}, []);
-
-	/* useEffect(() => {
-        const scrollTarget = document.getElementById("scrollTarget");
-        if (scrollTarget){
-            scrollTarget.addEventListener('mousedown', (e) => {
-                scrollTarget.style.pointerEvents = "none";
-                const clickTarget = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement
-                if (clickTarget){
-                    clickTarget.click();
-                }
-            }, false);
-            scrollTarget.addEventListener('mouseup', (e) => {
-                scrollTarget.style.pointerEvents = "all";
-            }, false);
-
-            scrollTarget.addEventListener('touchstart', (e) => {
-                scrollTarget.style.pointerEvents = "all";
-            }, false);
-        }
-    },[]) */
+	
 	/* Setup GSAP */
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);

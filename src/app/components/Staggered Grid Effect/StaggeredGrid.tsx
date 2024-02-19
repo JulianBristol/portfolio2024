@@ -63,8 +63,8 @@ const StaggeredGrid: FC<StaggeredGridProps> = ({}) => {
 			const createGrid = () => {
 				grid.innerHTML = "";
 
-				const columns = Math.floor(grid.offsetWidth / 50);
-				const rows = Math.floor(grid.offsetHeight / 50);
+				columns = Math.floor(grid.offsetWidth / 50);
+				rows = Math.floor(grid.offsetHeight / 50);
 				grid.style.setProperty("--columns", `${columns}`);
 				grid.style.setProperty("--rows", `${rows}`);
 

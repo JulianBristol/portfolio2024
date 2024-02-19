@@ -23,8 +23,6 @@ export default function Home() {
 	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
 	consider making another screen break for smaller than 320px for the hero section
 	consider adding a onClick for the technology badges
-
-	* BugFix: there is an issue when you change the screen size and then click inside the about me section. This is likely due to a failure to recalculate the grid sections in animejs
 	
 	*/
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
