@@ -78,11 +78,12 @@ const Contact: FC<ContactProps> = ({}) => {
 				onSubmit={handleSubmit}
 				className="flex flex-col mx-0 sm:mx-12"
 			>
-				<label htmlFor="Name" className="flex flex-col">
+				<label htmlFor="name" className="flex flex-col">
 					<span className="text-[20px] mx-8">Name</span>
 					<input
 						type="text"
 						name="name"
+						id="name"
 						value={form.name}
 						onChange={handleChange}
 						placeholder="Your name"
@@ -95,6 +96,7 @@ const Contact: FC<ContactProps> = ({}) => {
 					<input
 						type="email"
 						name="email"
+						id="email"
 						value={form.email}
 						onChange={handleChange}
 						placeholder="Your email"
@@ -102,11 +104,12 @@ const Contact: FC<ContactProps> = ({}) => {
 						required={true}
 					/>
 				</label>
-				<label htmlFor="email message" className="flex flex-col">
+				<label htmlFor="message" className="flex flex-col">
 					<span className="text-[20px] mx-8">Message</span>
 					<textarea
 						rows={7}
 						name="message"
+						id="message"
 						value={form.message}
 						onChange={handleChange}
 						placeholder="Your message"
@@ -115,7 +118,7 @@ const Contact: FC<ContactProps> = ({}) => {
 					/>
 				</label>
 				<button
-					className="bg-morocco mt-4 mb-2 p-2 sm:px-3 lg:px-4 lg:py-2 rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco text-ash"
+					className="bg-morocco mt-4 mb-2 p-2 sm:px-3 lg:px-4 lg:py-2 text-[16px] sm:text-[24px] xl:text-[32px] textTransition rounded-md w-fit self-center transition active:btnClick hover:bg-gradient-to-b hover:from-marigold hover:to-morocco focus:bg-gradient-to-b focus:from-marigold focus:to-morocco text-ash"
 					type="submit"
 				>
 					{loading ? (
@@ -124,7 +127,7 @@ const Contact: FC<ContactProps> = ({}) => {
 						<span className="flex">
 							Submit
 							<Image
-								className="ml-1 w-[15px]"
+								className="ml-1 w-[16px] sm:w-[24px] xl:w-[32px] transition-all"
 								src={airplaneIcon}
 								alt="airplane icon"
 							/>

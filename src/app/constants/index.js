@@ -152,155 +152,50 @@ const projects = [
     name: 'WanderInn',
     description: `Discover unique stays, from cozy cabins to urban lofts, and everything in between. 
     With WanderInn, you'll find the ideal place to call home while you explore new destinations.`,
-    tags: [
-      {
-        name: 'React.js',
-        color: '#00d9ff',
-      },
-      {
-        name: 'TypeScript',
-        color: '#07ff00',
-      },
-      {
-        name: 'TailwindCSS',
-        color: '#a0eba8',
-      },
-      {
-        name: 'MongoDB',
-        color: '#7dc353',
-      },
-      {
-        name: 'Redux',
-        color: '#adc3c3',
-      },
-    ],
-    image: wanderInn,
-    sourceCodeLink: 'https://github.com/JulianBristol/WanderInn',
-    activeLink: 'https://wanderinn.vercel.app/',
+    tags: ['React.js','TypeScript','TailwindCSS','MongoDB','Redux'],
+    image: [wanderInn,breadit,swu,blog,travelWisely],
+    github: 'https://github.com/JulianBristol/WanderInn',
+    website: 'https://wanderinn.vercel.app/',
   },
   {
     name: 'Breadit',
     description: 'Breadit is a Reddit clone for just about anything you can think of. Feel free to signup for an account and post whatever you like. It is a FullStack application that employs concepts like infinite scrolling, caching, authentication, optimistic updates and more.',
-    tags: [
-      {
-        name: 'React.js',
-        color: '#00d9ff',
-      },
-      {
-        name: 'TypeScript',
-        color: '#07ff00',
-      },
-      {
-        name: 'TailwindCSS',
-        color: '#a0eba8',
-      },
-      {
-        name: 'MongoDB',
-        color: '#7dc353',
-      },
-      {
-        name: 'Redux',
-        color: '#adc3c3',
-      },
-    ],
-    image: breadit,
-    sourceCodeLink: 'https://github.com/JulianBristol/Breadit',
-    activeLink: 'https://breadit.netlify.app/',
+    tags: ['React.js','TypeScript','TailwindCSS','MongoDB','Redux'],
+    image: [breadit,wanderInn,swu,blog,travelWisely],
+    github: 'https://github.com/JulianBristol/Breadit',
+    website: 'https://breadit.netlify.app/',
   },
   {
     name: 'Searcy Water Utilities',
     description: 'Revamp the existing Searcy Water Utilities website to provide information and services to the residents of Searcy Arkansas.',
-    tags: [
-      {
-        name: 'MongoDB',
-        color: '#7dc353',
-      },
-      {
-        name: 'Express.js',
-        color: '#CC112C',
-      },
-      {
-        name: 'React.js',
-        color: '#00d9ff',
-      },
-      {
-        name: 'Node.js',
-        color: '#ac22e0',
-      },
-      {
-        name: 'MUI',
-        color: '#0ea5e9',
-      },
-    ],
-    image: swu,
-    sourceCodeLink: '',
-    activeLink: 'http://searcywater.org/',
+    tags: ['MongoDB','Express.js','React.js','Node.js','MUI',],
+    image: [swu,wanderInn,breadit,blog,travelWisely],
+    github: undefined,
+    website: 'http://searcywater.org/',
   },
   {
     name: 'FaceBlog',
     description: 'FaceBlog is a website that combines my portfolio, blog, and thoughts with AI-generated profiles and posts. Built using ReactJS, Javascript, MUI, and several APIs, it aims to help people learn more about me and my ideas.',
-    tags: [
-      {
-        name: 'React.js',
-        color: '#00d9ff',
-      },
-      {
-        name: 'JavaScript',
-        color: '#ffd600',
-      },
-      {
-        name: 'MUI',
-        color: '#0ea5e9',
-      },
-    ],
-    image: blog,
-    sourceCodeLink: 'https://github.com/JulianBristol/FaceBlog',
-    activeLink: 'https://face-blog.netlify.app',
+    tags: ['React.js','JavaScript','MUI',],
+    image: [blog,wanderInn,breadit,swu,travelWisely],
+    github: 'https://github.com/JulianBristol/FaceBlog',
+    website: 'https://face-blog.netlify.app',
   },
   {
     name: 'Travel Wisely',
     description: 'A comprehensive platform that empowers users with location-based information, weather forecasts, and recommendations for nearby restaurants, hotels, and attractions. It helps users make informed travel decisions and explore new places with confidence.',
-    tags: [
-      {
-        name: 'React.js',
-        color: '#00d9ff',
-      },
-      {
-        name: 'JavaScript',
-        color: '#ffd600',
-      },
-      {
-        name: 'MUI',
-        color: '#0ea5e9',
-      },
-    ],
-    image: travelWisely,
-    sourceCodeLink: 'https://github.com/JulianBristol/TravelWisely',
-    activeLink: 'https://travelwisely.netlify.app/',
+    tags: ['React.js','JavaScript','MUI',],
+    image: [travelWisely,wanderInn,breadit,swu,blog],
+    github: 'https://github.com/JulianBristol/TravelWisely',
+    website: 'https://travelwisely.netlify.app/',
   },
   {
     name: 'Heaven\'s Vault Translator',
     description: 'Heaven\'s Vault is a game with an interesting gimmick where you need to translate ancient runes into modern day language. This program acts as a translator of sorts, allowing you to Create, Read, Update, and Delete words and their meanings.',
-    tags: [
-      {
-        name: 'Java',
-        color: '#ffb5b5',
-      },
-      {
-        name: 'MySQL',
-        color: '#e38b5d',
-      },
-      {
-        name: 'CRUD',
-        color: '#c599ff',
-      },
-      {
-        name: 'SceneBuilder',
-        color: '#dffc5e',
-      },
-    ],
-    image: heavensVault,
-    activeLink: 'https://github.com/JulianBristol/HeavensVaultTranslator',
+    tags: ['Java','MySQL','CRUD','SceneBuilder',],
+    image: [heavensVault],
+    github: 'https://github.com/JulianBristol/HeavensVaultTranslator',
+    website: undefined,
   }/*
   {
     name: 'Cloudinary Image Viewer',

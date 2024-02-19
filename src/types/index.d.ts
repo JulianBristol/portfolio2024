@@ -16,6 +16,6 @@ export type Projects = {
     description: string;
     tags: string[];
     image: image[];
-    github: string | null;
-    website: string | null;
+    github: string | undefined;
+    website: string | undefined;
 }

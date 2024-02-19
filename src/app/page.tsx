@@ -13,14 +13,21 @@ import gsap from "gsap";
 import History from "./components/History/History";
 import Technologies from "./components/Technologies/Technologies";
 import Contact from "./components/Contact/Contact";
+import Portfolio from "./components/Portfolio/Portfolio";
 
 export default function Home() {
-	/* TODO: Change the cursor size based on screen size
-	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
-	General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
+	/* TODO: 
+	* Change the cursor size based on screen size
+	* App should watch for "magical" and then draw it on the page. when the user scrolls back up, it undraws it. Then the cycle starts again
+	* General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
 	Add header scroll effect
+	* Set a max width for the screen so that it does not look too big
+	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
+	set a min width for my image so it does not look off on super small screens
+	consider making another screen break for smaller than 320px for the hero section
+	consider adding a onClick for the technology badges
 
-	BugFix: there is an issue when you change the screen size and then click inside the about me section. This is likely due to a failure to recalculate the grid sections in animejs
+	* BugFix: there is an issue when you change the screen size and then click inside the about me section. This is likely due to a failure to recalculate the grid sections in animejs
 	
 	*/
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -288,14 +295,11 @@ export default function Home() {
 							<Technologies />
 						</section>
 
-						<section id="portfolio" className="mt-[16vh]">
-							{/* Portfolio items that I have created section */}
-							{/* h2 - Portfolio */}
+							{/* Portfolio items  */}
+						<section id="portfolio" className="mt-[40px] md:mt-[60px] lg:mt-[80px] mx-2 md:mx-4 mb-20">
+							<Portfolio />
 						</section>
-
-						
 					</main>
-					<footer>{/* if I have  one... */}</footer>
 				</div>
 			</div>
 		</div>
