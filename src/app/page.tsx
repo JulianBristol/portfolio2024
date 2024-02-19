@@ -21,7 +21,6 @@ export default function Home() {
 	* App should watch for "magical" and then draw it on the page. when the user scrolls back up, it undraws it. Then the cycle starts again
 	* General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
 	Add header scroll effect
-	* Set a max width for the screen so that it does not look too big
 	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
 	set a min width for my image so it does not look off on super small screens
 	consider making another screen break for smaller than 320px for the hero section
@@ -264,8 +263,8 @@ export default function Home() {
 				</div>
 			)}
 
-			<div className="bg-creme bgCubes h-full min-h-[100vh]">
-				<div className="mx-2 py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition">
+			<div className="bg-creme bgCubes h-full min-h-[100vh] px-2">
+				<div className="mx-2 sm:mx-auto py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition max-w-[1500px]">
 					<header>
 						<Header />
 					</header>
@@ -305,10 +304,7 @@ export default function Home() {
 		</div>
 		<div className="fadeB4Contact w-full h-[20px] absolute mt-[-20px]"/>
 		<section id="contact">
-							{/* contact julian form section
-            ps. don't forget the accessibility requirements for form elements
-            */}
-							<Contact />
+			<Contact />
 						</section>
 		</div>
 	);

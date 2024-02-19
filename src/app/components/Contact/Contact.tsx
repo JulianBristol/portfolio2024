@@ -59,7 +59,7 @@ const Contact: FC<ContactProps> = ({}) => {
 	};
 
 	return (
-		<div className="text-hope-100 mx-4 pb-[100px]">
+		<div className="text-hope-100 mx-4 xs:mx-auto pb-[100px] max-w-[1500px]">
 			<h2 className="mb-4 text-center text-[48px] sm:text-[56px] lg:text-[64px] xl:text-[72px] 2xl:text-[84px] textTransition">
 				Contact Me
 			</h2>
