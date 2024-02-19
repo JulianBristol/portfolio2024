@@ -253,8 +253,8 @@ export default function Home() {
 			className="bg-creme h-full min-h-[100vh] focus:ring-poppy text-ash font-medium"
 			ref={containerRef}
 		>
-			{/* On desktop device */}
-			{!isTouchDevice && (
+			{/* On desktop device - mouse chaser */}
+			{/* {!isTouchDevice && (
 				<div>
 					<svg
 						id="cursor-outer"
@@ -275,7 +275,7 @@ export default function Home() {
 					</svg>
 					<Image id="cursor-inner" src={innerCircle} alt="" />
 				</div>
-			)}
+			)} */}
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh] px-2">
 				<div className="mx-2 sm:mx-auto py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition max-w-[1500px]">
