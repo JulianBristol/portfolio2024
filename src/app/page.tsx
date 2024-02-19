@@ -21,7 +21,6 @@ export default function Home() {
 	* App should watch for "magical" and then draw it on the page. when the user scrolls back up, it undraws it. Then the cycle starts again
 	Add header scroll effect
 	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
-	set a min width for my image so it does not look off on super small screens
 	consider making another screen break for smaller than 320px for the hero section
 	consider adding a onClick for the technology badges
 

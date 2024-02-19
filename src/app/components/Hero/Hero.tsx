@@ -116,7 +116,7 @@ const Hero: FC<HeroProps> = ({}) => {
 							priority
 							fill
 							sizes="(max-width: 320px) 45vw, 60vw"
-							className="object-contain !top-5 scale-150"
+							className="object-contain !top-5 scale-150 min-w-[105px]"
 						/>
 					</div>
 
