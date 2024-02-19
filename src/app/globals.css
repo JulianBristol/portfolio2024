@@ -92,4 +92,10 @@ background: linear-gradient(0deg, #0d2113 0%, #246036 100%);
   }
 }
 
-/* Responsiveness */
+.scroll-down {
+  transform: translateY(-120%);
+}
+
+.scroll-up {
+  
+}

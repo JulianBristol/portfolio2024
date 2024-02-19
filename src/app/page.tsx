@@ -18,13 +18,13 @@ import Portfolio from "./components/Portfolio/Portfolio";
 export default function Home() {
 	/* TODO: 
 	* Change the cursor size based on screen size
-	Add header scroll effect
+	
 	consider making another screen break for smaller than 320px for the hero section
 	consider adding a onClick for the technology badges
-	
 	*/
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
 	const [toggleCursor, setToggleCursor] = useState(false);
+	const [lastScroll, setLastScroll] = useState(0);
 
 	/* Add Smooth Scrolling to links */
 	useEffect(() => {
@@ -174,6 +174,26 @@ export default function Home() {
 			document.addEventListener("scroll", (e) => {
 				offsetX = window.scrollX;
 				offsetY = window.scrollY;
+				setLastScroll((prev) => {
+					const header = document.getElementById("header")
+					if (offsetY <= 60){
+						header?.classList.remove("scroll-down")
+						header?.classList.add("scroll-up")
+					}
+
+					if (offsetY > prev && !header?.classList.contains("scroll-down") && offsetY > 60){
+						header?.classList.remove("scroll-up")
+						header?.classList.add("scroll-down")
+					}
+
+					if (offsetY < prev && header?.classList.contains("scroll-down")){
+						header?.classList.remove("scroll-down")
+						header?.classList.add("scroll-up")
+					}
+					return offsetY;
+				  })
+
+
 				inner.style.top = `${innerY + offsetY}px`;
 				inner.style.left = `${innerX + offsetX}px`;
 				if (!opacity) {
@@ -259,17 +279,21 @@ export default function Home() {
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh] px-2">
 				<div className="mx-2 sm:mx-auto py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition max-w-[1500px]">
-					<header>
+					<header id="header" className="scroll-up fixed top-0 w-full left-0 z-50 transition-all">
+						<div className="h-[10px] bg-creme w-full"/>
 						<Header />
 					</header>
-					<main>
+					{/* <header className="">
+						<Header />
+					</header> */}
+					<main className="mt-[80px] xs:mt-[90px] md:mt-[110px]">
 						{/* hero section */}
 						<section className="mb-20">
 							<Hero />
 						</section>
 
 						{/* Let's make something magical */}
-						<section>
+						<section className="mx-12">
 							<LetsMakeSomethingMagical />
 						</section>
 
@@ -284,7 +308,7 @@ export default function Home() {
 							</section>
 
 							{/* Technologies section */}
-						<section id="tech"  className="mt-[40px] md:mt-[60px] lg:mt-[80px] mx-2 md:mx-4">
+						<section id="tech"  className="mt-[40px] md:mt-[60px] lg:mt-[80px] mx-4 md:mx-6">
 							<Technologies />
 						</section>
 

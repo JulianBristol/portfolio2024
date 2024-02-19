@@ -62,9 +62,9 @@ const LetsMakeSomethingMagical: FC<LetsMakeSomethingMagicalProps> = ({}) => {
 	}, []);
 	return (
 		<>
-			<p className="text-[15vw] ml-[20vw]">Let&apos;s</p>
-			<p className="text-[15vw] text-right mr-[20vw]">Make</p>
-			<p className="text-[15vw] text-center">Something</p>
+			<p className="text-[12vw] ml-[20vw]">Let&apos;s</p>
+			<p className="text-[12vw] text-right mr-[20vw]">Make</p>
+			<p className="text-[12vw] text-center">Something</p>
 
 			<svg
 				className="w-full h-full px-4 pt-4"
