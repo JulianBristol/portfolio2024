@@ -279,13 +279,9 @@ export default function Home() {
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh] px-2">
 				<div className="mx-2 sm:mx-auto py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition max-w-[1500px]">
-					<header id="header" className="scroll-up fixed top-0 w-full left-0 z-50 transition-all">
-						<div className="h-[10px] bg-creme w-full"/>
+					<header id="header" className="scroll-up fixed top-[10px] w-full max-w-[1500px] pr-[34px] xs:pr-[35px] sm:pr-[19px] md:pr-[21px] 2xl:pr-[5px] z-50 transition-all">
 						<Header />
 					</header>
-					{/* <header className="">
-						<Header />
-					</header> */}
 					<main className="mt-[80px] xs:mt-[90px] md:mt-[110px]">
 						{/* hero section */}
 						<section className="mb-20">
