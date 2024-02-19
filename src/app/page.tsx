@@ -19,7 +19,6 @@ export default function Home() {
 	/* TODO: 
 	* Change the cursor size based on screen size
 	* App should watch for "magical" and then draw it on the page. when the user scrolls back up, it undraws it. Then the cycle starts again
-	* General fixes to the "I am a..." section. On various screen sizes, it has positioning issues
 	Add header scroll effect
 	Consider giving "lets make something magical" a fill animation when it reaches its outline off status
 	set a min width for my image so it does not look off on super small screens

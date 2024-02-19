@@ -133,10 +133,11 @@ const Hero: FC<HeroProps> = ({}) => {
 							<hr className="text-smoke my-2 w-[50%] self-center" />
 						</section>
 						<section className="flex flex-col">
-							<div className="flex flex-row justify-around mb-[2px]">
-								<p>I am a... </p>
+							<div className="flex flex-row mb-[2px] relative">
+								<p>&nbsp;
+									<span className="absolute block left-0 mt-[-18px]">I am a... </span>
 								<span
-									className="text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer"
+									className="absolute block right-0 mt-[-18px] text-[12px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer"
 									onClick={() => {
 										if (currentTitle >= myTitles.length - 1) {
 											setCurrentTitle(0);
@@ -149,7 +150,7 @@ const Hero: FC<HeroProps> = ({}) => {
 										{myTitles[currentTitle]}
 									</span>
 									<span className="blinking">|</span>
-								</span>
+								</span></p>
 							</div>
 							<a
 								href="#history"
@@ -399,7 +400,7 @@ const Hero: FC<HeroProps> = ({}) => {
 				<section className="flex flex-col flex-1 mx-4">
 					<section className="flex flex-col">
 						<p className="text-center relative">
-							<span className="absolute top-[-24px] lg:top-[-36px] xl:top-[-42px] 2xl:top-[-48px] ml-[45%] sm:ml-[40%]">I am a...</span>
+							<span className="absolute block top-[-24px] lg:top-[-36px] xl:top-[-42px] 2xl:top-[-48px] right-0">I am a...</span>
 							<span
 								className="ml-[20%] text-[12px] sm:text-[18px] lg:text-[28px] xl:text-[36px] 2xl:text-[42px] text-hope-500 leading-[18px] font-mono hover:cursor-pointer"
 								onClick={() => {
