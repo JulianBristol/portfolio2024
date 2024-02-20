@@ -38,10 +38,10 @@ import breadit from './Projects/Breadit.webp';
 import breadit2 from './Projects/Breadit2.webp';
 import breadit3 from './Projects/Breadit3.webp';
 import wanderInn from './Projects/WanderInn.webp';
-import wanderInn2 from './Projects/wanderInn2.webp';
-import wanderInn3 from './Projects/wanderInn3.webp';
-import wanderInn4 from './Projects/wanderInn4.webp';
-import wanderInn5 from './Projects/wanderInn5.webp';
+import wanderInn2 from './Projects/wanderinn2.webp';
+import wanderInn3 from './Projects/wanderinn3.webp';
+import wanderInn4 from './Projects/wanderinn4.webp';
+import wanderInn5 from './Projects/wanderinn5.webp';
 
 /* import logo from './Logos/Companies/logo.svg'; */
 
