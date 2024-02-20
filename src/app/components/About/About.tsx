@@ -8,6 +8,28 @@ interface AboutProps {}
 
 const About: FC<AboutProps> = ({}) => {
 	useEffect(() => {
+		document.addEventListener("scroll", () => {
+			const maskContent = document.getElementById("maskContent");
+			const rValue = maskContent?.getAttribute("r");
+
+			if (maskContent && rValue) {
+				const isMaskContentFull = rValue >= "75%";
+				const scrollTarget = document.getElementById("scrollTarget");
+
+				if (scrollTarget) {
+					scrollTarget.classList.toggle(
+						"pointer-events-none",
+						!isMaskContentFull
+					);
+					scrollTarget.classList.toggle(
+						"pointer-events-auto",
+						isMaskContentFull
+					);
+				}
+			}
+		});
+	}, []);
+	useEffect(() => {
 		const scrollTarget = document.getElementById("scrollTarget");
 		if (scrollTarget) {
 			const handleMouseDown = (e: MouseEvent) => {
@@ -30,7 +52,7 @@ const About: FC<AboutProps> = ({}) => {
 			};
 		}
 	}, []);
-	
+
 	/* Setup GSAP */
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -154,7 +176,7 @@ const About: FC<AboutProps> = ({}) => {
 						<div className="m-auto absolute inset-4 rounded-2xl border-4 border-untouched flex w-fit h-fit">
 							<div
 								id="scrollTarget"
-								className="m-[2px] p-4 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-auto"
+								className="m-[2px] p-4 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-none"
 							>
 								<p>Hey, Julian here!</p>
 								<p>
