@@ -100,6 +100,7 @@ const About: FC<AboutProps> = ({}) => {
 					width="100%"
 					className="my-[10vh]"
 					xmlns="http://www.w3.org/2000/svg"
+					mask="url(#circleMask)"
 				>
 					<defs>
 						{/* Distortion effect */}
@@ -137,7 +138,7 @@ const About: FC<AboutProps> = ({}) => {
 						y="0"
 						width="100%"
 						height="100%"
-						mask="url(#circleMask)"
+						/* mask="url(#circleMask)" */
 						className="rounded-2xl"
 					>
 						<StaggeredGrid />
@@ -147,7 +148,7 @@ const About: FC<AboutProps> = ({}) => {
 						y="0"
 						width="100%"
 						height="100%"
-						mask="url(#circleMask)"
+						/* mask="url(#circleMask)" */
 						className="p-4 relative pointer-events-none"
 					>
 						<div className="m-auto absolute inset-4 rounded-2xl border-4 border-untouched flex w-fit h-fit">

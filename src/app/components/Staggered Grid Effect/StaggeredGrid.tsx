@@ -68,7 +68,7 @@ const StaggeredGrid: FC<StaggeredGridProps> = ({}) => {
 				grid.style.setProperty("--columns", `${columns}`);
 				grid.style.setProperty("--rows", `${rows}`);
 
-				createTiles((columns + 2) * (rows + 2));
+				createTiles(columns * rows);
 			};
 
 			window.onresize = () => {
@@ -77,7 +77,7 @@ const StaggeredGrid: FC<StaggeredGridProps> = ({}) => {
 		}
 	}, []);
 
-	return <div id="staggeredGridContainer" className="h-full flex" />;
+	return <div id="staggeredGridContainer" className="flex" />;
 };
 
 export default StaggeredGrid;

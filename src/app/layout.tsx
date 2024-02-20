@@ -3,6 +3,7 @@ import { Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import Script from "next/script";
+import Favicon from '../../public/logo.svg';
 
 const crimsonPro = Crimson_Pro({ subsets: ["latin"] });
 
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
 		"experience-first approach",
 		"UI/UX designer",
 	],
+  icons: [{ rel: 'icon', url: Favicon.src }],
+
 };
 
 export default function RootLayout({
@@ -38,7 +41,6 @@ export default function RootLayout({
 		<>
 			<Head>
 				<link rel="preload" as="image" href="/app/assets/JulianBristol.webp" />
-      <link rel="icon" href="/logo.svg" />
 			</Head>
 			<Script
 				async
