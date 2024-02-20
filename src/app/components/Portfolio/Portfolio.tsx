@@ -90,7 +90,7 @@ const Portfolio: FC<PortfolioProps> = ({}) => {
 						<div className="flex flex-wrap xs:flex-nowrap sm:flex-wrap h-fit justify-center items-center gap-5 w-[100%] sm:w-[45%]">
 							{" "}
 							{positioningArr.map((index, key) => {
-								if (key > 0 && projects[selectedPortfolioItem].image.length > 1) {
+								if (key > 0 && projects[selectedPortfolioItem].image.length-1 >= key) {
 									return (
 										<div
 											key={key}

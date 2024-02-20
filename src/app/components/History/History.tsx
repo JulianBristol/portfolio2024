@@ -25,7 +25,7 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ experience }) => (
 				<Image
             src={experience.icon}
             alt={experience.companyName}
-            className='w-full'
+            className='w-full rounded-full'
             />
 			</div>
 		}
@@ -48,7 +48,7 @@ const History: FC<HistoryProps> = ({}) => {
 	return (
 		<>
 			<h2 className="mb-4 text-hope-500 text-center text-[48px] sm:text-[56px] lg:text-[64px] xl:text-[72px] 2xl:text-[84px] textTransition">My History</h2>
-			<VerticalTimeline lineColor="">
+			<VerticalTimeline lineColor="" animate={false}>
 				{experiences.map((experience, key) => (
 					<ExperienceCard key={key} experience={experience} />
 				))}

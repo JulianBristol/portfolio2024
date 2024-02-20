@@ -158,6 +158,29 @@ export default function Home() {
 
 	/* mouse chaser */
 	useEffect(() => {
+		document.addEventListener("scroll", (e) => {
+		const scrollPos = window.scrollY;
+		setLastScroll((prev) => {
+			const header = document.getElementById("header")
+			
+			if (scrollPos <= 60){
+				header?.classList.remove("scroll-down")
+				header?.classList.add("scroll-up")
+			}
+
+			if (scrollPos > prev && !header?.classList.contains("scroll-down") && scrollPos > 60){
+				header?.classList.remove("scroll-up")
+				header?.classList.add("scroll-down")
+			}
+
+			if (scrollPos < prev && header?.classList.contains("scroll-down")){
+				header?.classList.remove("scroll-down")
+				header?.classList.add("scroll-up")
+			}
+			return scrollPos;
+		  })
+		})
+
 		const inner = document.getElementById("cursor-inner");
 		const outer = document.getElementById("cursor-outer");
 
@@ -279,7 +302,7 @@ export default function Home() {
 
 			<div className="bg-creme bgCubes h-full min-h-[100vh] px-2">
 				<div className="mx-2 sm:mx-auto py-2 border-x-poppy border-y-transparent h-full min-h-[100vh] border-[0.5px] xs:border-[2px] md:border-[3px] redBorderTransition max-w-[1500px]">
-					<header id="header" className="scroll-up fixed top-[10px] w-full max-w-[1500px] pr-[34px] xs:pr-[35px] sm:pr-[19px] md:pr-[21px] 2xl:pr-[5px] z-50 transition-all">
+					<header id="header" className="scroll-up fixed top-[10px] w-full max-w-[1500px] pr-[34px] xs:pr-[35px] sm:pr-[19px] md:pr-[21px] 2xl:pr-[4px] z-50 transition-all">
 						<Header />
 					</header>
 					<main className="mt-[80px] xs:mt-[90px] md:mt-[110px]">

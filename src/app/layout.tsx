@@ -38,6 +38,7 @@ export default function RootLayout({
 		<>
 			<Head>
 				<link rel="preload" as="image" href="/app/assets/JulianBristol.webp" />
+      <link rel="icon" href="/logo.svg" />
 			</Head>
 			<Script
 				async
