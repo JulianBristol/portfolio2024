@@ -13,16 +13,16 @@ const About: FC<AboutProps> = ({}) => {
 			const rValue = maskContent?.getAttribute("r");
 
 			if (maskContent && rValue) {
-				const isMaskContentFull = rValue >= "75%";
+				const isMaskContentFull = rValue >= "36%" || rValue === "100%";
 				const scrollTarget = document.getElementById("scrollTarget");
 
 				if (scrollTarget) {
 					scrollTarget.classList.toggle(
-						"pointer-events-none",
+						"overflow-y-hidden",
 						!isMaskContentFull
 					);
 					scrollTarget.classList.toggle(
-						"pointer-events-auto",
+						"overflow-y-auto",
 						isMaskContentFull
 					);
 				}
@@ -176,7 +176,7 @@ const About: FC<AboutProps> = ({}) => {
 						<div className="m-auto absolute inset-4 rounded-2xl border-4 border-untouched flex w-fit h-fit">
 							<div
 								id="scrollTarget"
-								className="m-[2px] p-4 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-auto pointer-events-none"
+								className="m-[2px] p-4 py-8 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-y-auto pointer-events-all"
 							>
 								<p>Hey, Julian here!</p>
 								<p>
