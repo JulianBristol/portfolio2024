@@ -17,18 +17,27 @@ const About: FC<AboutProps> = ({ toggleLenisScroll }) => {
 			if (scrollArea !== null && scrollArea.current){
 				if (contentHover){
 					/* document.body.style.overflow = "hidden"; */
-					toggleLenisScroll(false);
+					const scrollTarget = document.getElementById("scrollTarget");
+					if (scrollTarget){
+						const yTop = scrollTarget.scrollTop;
+						const cHeight = scrollTarget.clientHeight;
+						const yHeight = scrollTarget.scrollHeight;
+						if (Math.ceil(yTop + cHeight) >= yHeight || yTop === 0){
+							toggleLenisScroll(true);
+						}else {
+							toggleLenisScroll(false);
+						}
+					}
 					(scrollArea.current as HTMLElement).scrollTop += e.deltaY;
-				} else{
-					toggleLenisScroll(true)
-				}
+				} 
 			}
 		}
 		window.addEventListener("wheel", handleScrolling);
 		return () => {
+			toggleLenisScroll(true)
 			window.removeEventListener("wheel", handleScrolling);
 		}
-	},[contentHover])
+	},[contentHover, toggleLenisScroll])
 
 	useEffect(() => {
 		document.addEventListener("scroll", () => {
