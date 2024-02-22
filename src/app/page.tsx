@@ -25,6 +25,7 @@ export default function Home() {
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
 	const [toggleCursor, setToggleCursor] = useState(false);
 	const [lastScroll, setLastScroll] = useState(0);
+	const [isLenisActive, setIsLenisActive] = useState(true);
 
 	/* Add Smooth Scrolling to links */
 	useEffect(() => {
@@ -50,9 +51,15 @@ export default function Home() {
 		});
 	}, []);
 
+	const changeLenis = (bool: boolean) => {
+		console.log("lenis was :", isLenisActive)
+		setIsLenisActive(bool);
+		console.log("toggling to :", isLenisActive)
+	  };
+
 	/* Setup Lenis - Smooth Scroll */
-	useEffect(() => {
-		const lenis = new Lenis();
+	/* useEffect(() => {
+			const lenis = new Lenis();
 
 		lenis.on("scroll", ScrollTrigger.update);
 
@@ -61,7 +68,35 @@ export default function Home() {
 		});
 
 		gsap.ticker.lagSmoothing(0);
-	}, []);
+		if (!isLenisActive) {
+			lenis.stop();
+		} else {
+			lenis.start();
+		}
+	}, [isLenisActive]); */
+	useEffect(() => {
+		const lenis = new Lenis();
+	
+		const handleLenisScroll = (time: number) => {
+		  if (isLenisActive) {
+			lenis.raf(time * 1000);
+			ScrollTrigger.update();
+		  }
+		};
+	
+		gsap.ticker.add(handleLenisScroll);
+	
+		gsap.ticker.lagSmoothing(0);
+	
+		return () => {
+		  gsap.ticker.remove(handleLenisScroll);
+		};
+	  }, [isLenisActive]);
+	
+	  const toggleLenisScroll = (bool: boolean) => {
+		setIsLenisActive(bool);
+	  };
+	
 
 	/* Setup AnimeJS */
 	useEffect(() => {
@@ -318,7 +353,7 @@ export default function Home() {
 
 						{/* about me section */}
 						<section id="about" className="mt-[16vh]">
-							<About />
+							<About toggleLenisScroll={toggleLenisScroll} />
 						</section>
 
 						{/* history section */}

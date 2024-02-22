@@ -1,12 +1,35 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import "./About.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import StaggeredGrid from "../Staggered Grid Effect/StaggeredGrid";
 
-interface AboutProps {}
+interface AboutProps {
+	toggleLenisScroll: (bool: boolean) => void;
+}
 
-const About: FC<AboutProps> = ({}) => {
+const About: FC<AboutProps> = ({ toggleLenisScroll }) => {
+	const scrollArea = useRef(null);
+	const [contentHover, setContentHover] = useState(false);
+
+	useEffect(() => {
+		const handleScrolling = (e:WheelEvent) => {
+			if (scrollArea !== null && scrollArea.current){
+				if (contentHover){
+					/* document.body.style.overflow = "hidden"; */
+					toggleLenisScroll(false);
+					(scrollArea.current as HTMLElement).scrollTop += e.deltaY;
+				} else{
+					toggleLenisScroll(true)
+				}
+			}
+		}
+		window.addEventListener("wheel", handleScrolling);
+		return () => {
+			window.removeEventListener("wheel", handleScrolling);
+		}
+	},[contentHover])
+
 	useEffect(() => {
 		document.addEventListener("scroll", () => {
 			const maskContent = document.getElementById("maskContent");
@@ -176,6 +199,11 @@ const About: FC<AboutProps> = ({}) => {
 						<div className="m-auto absolute inset-4 rounded-2xl border-4 border-untouched flex w-fit h-fit">
 							<div
 								id="scrollTarget"
+								ref={scrollArea}
+								onMouseEnter={() =>
+									setContentHover(true)
+									}
+								onMouseLeave={() => setContentHover(false)}
 								className="m-[2px] p-4 py-8 h-[50vh] max-w-[700px] max-h-[500px] rounded-2xl bg-untouched text-creme opacity-95 text-[20px] overflow-y-auto pointer-events-all"
 							>
 								<p>Hey, Julian here!</p>
