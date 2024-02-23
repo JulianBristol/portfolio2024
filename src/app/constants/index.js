@@ -102,38 +102,15 @@ const technologies = [
 
 const experiences = [
   {
-    title: 'Computer Science Student',
-    companyName: 'Capella University',
-    icon: capella,
-    date: 'Jan 2020 - Sept 2022',
-    points: [
-      'Learn and use languages and software to build in React.js, JavaScript, HTML, CSS, Java, SQL, and MongoDB',
-      'Collaborating with students in teams composed of designers, project managers, and other developers to create graded school projects.',
-      'Implement Agile methodologies, namely Scrum.',
-      'Participating in learning activities directed to learn from and teach others.',
-    ],
-  },
-  {
     title: 'Software Developer',
-    companyName: 'HR Inspired Business Solutions',
-    icon: hribs,
-    date: 'Aug 2021 - Apr 2022',
+    companyName: 'SmartWiz',
+    icon: smartwiz,
+    date: 'Nov 2023 - Present',
     points: [
-      'Created and orchestrated backend routes using Express and Nodejs, effectively enabling seamless communication between the frontend and backend components of web applications.',
-      'Stayed abreast of industry trends, incorporating emerging technologies and best practices to enhance overall web presence and align with evolving market demands.',
-      'Implemented cross-browser compatibility, responsive design, and mobile-first development strategies to enhance the user experience and user interface (UI/UX) and ensure optimal website performance across various screen sizes and devices.',
-    ],
-  },
-  {
-    title: 'Front-End Developer',
-    companyName: 'Lykka Village',
-    icon: lykka,
-    date: 'Sept 2022 - Feb 2023',
-    points: [
-      'Collaborated with cross-functional teams to enhance product design through active participation in design reviews and usability testing.',
-      'Implemented and maintained RESTful web services following HTTP and web API standards to facilitate seamless communication between client and server, ensuring efficient data exchange and adherence to industry best practices.',
-      'Developed and maintained efficient data systems by leveraging advanced SQL queries and relational database management techniques, ensuring seamless integration and accessibility of critical information.',
-      'Leveraged React.js and JavaScript to implement innovative user-facing features, ensuring technical feasibility of UI/UX designs and optimizing applications for speed and scalability.'
+      `Initiated and conducted comprehensive code reviews, ensuring code quality, adherence to best practices, and knowledge sharing within the development team.`,
+      `Collaborated closely with product owners, UI/UX designers, back-end developers, and QA engineers to translate user requirements into highly scalable web experiences, ensuring effective communication and seamless integration throughout the development process.`,
+      `Participated in Agile methodologies (Scrum), sprint planning, stand-ups, reviews, and retrospectives ensuring timely, high-quality software delivery.`,
+      `Leveraged AWS cloud services to host and manage web pages, ensuring optimal performance and reliability in a cloud environment.`,
     ],
   },
   {
@@ -149,15 +126,38 @@ const experiences = [
     ],
   },
   {
-    title: 'Software Developer',
-    companyName: 'SmartWiz',
-    icon: smartwiz,
-    date: 'Nov 2023 - Present',
+    title: 'Front-End Developer',
+    companyName: 'Lykka Village',
+    icon: lykka,
+    date: 'Sept 2022 - Feb 2023',
     points: [
-      `Initiated and conducted comprehensive code reviews, ensuring code quality, adherence to best practices, and knowledge sharing within the development team.`,
-      `Collaborated closely with product owners, UI/UX designers, back-end developers, and QA engineers to translate user requirements into highly scalable web experiences, ensuring effective communication and seamless integration throughout the development process.`,
-      `Participated in Agile methodologies (Scrum), sprint planning, stand-ups, reviews, and retrospectives ensuring timely, high-quality software delivery.`,
-      `Leveraged AWS cloud services to host and manage web pages, ensuring optimal performance and reliability in a cloud environment.`,
+      'Conducted usability testing, leading to a 15% reduction in user interface issues and a more streamlined user experience.',
+      'Improved data exchange efficiency by 25% and reduced server-client communication latency by 15% through the development and deployment of RESTful web services.',
+      'Optimized database performance through advanced SQL queries, leading to a 20% reduction in query response time.',
+      'Leveraged React.js and JavaScript to implement innovative user-facing features, ensuring technical feasibility of UI/UX designs and optimizing applications for speed and scalability.'
+    ],
+  },
+  /* {
+    title: 'Computer Science Student',
+    companyName: 'Capella University',
+    icon: capella,
+    date: 'Jan 2020 - Sept 2022',
+    points: [
+      'Learn and use languages and software to build in React.js, JavaScript, HTML, CSS, Java, SQL, and MongoDB',
+      'Collaborating with students in teams composed of designers, project managers, and other developers to create graded school projects.',
+      'Implement Agile methodologies, namely Scrum.',
+      'Participating in learning activities directed to learn from and teach others.',
+    ],
+  }, */
+  {
+    title: 'Software Developer',
+    companyName: 'HR Inspired Business Solutions',
+    icon: hribs,
+    date: 'Aug 2021 - Apr 2022',
+    points: [
+      'Achieved a 15% increase in overall application performance by developing and implementing backend routes using Expressjs and Nodejs, resulting in a 20% improvement in server response time.',
+      'Implemented cross-browser compatibility, responsive design, and mobile-first development strategies, contributing to a 25% increase in user engagement and improved user interface (UI/UX).',
+      'Stayed abreast of industry trends and integrated emerging technologies, leading to a 30% reduction in page load times and enhanced web presence.',
     ],
   },
 ];
