@@ -15,3 +15,25 @@
     -1px -1px 3px #FBF7ED,
     1px -1px 3px #FBF7ED;
 }
+
+/* Scroll bar stylings */
+#scrollTarget::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Track */
+  #scrollTarget::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  /* Handle */
+  #scrollTarget::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  #scrollTarget::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
