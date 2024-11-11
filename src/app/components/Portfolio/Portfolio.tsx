@@ -174,7 +174,7 @@ const Portfolio: FC<PortfolioProps> = ({}) => {
 					{positioningProjects.map((index, key) => {
 						if (key > 0) {
 							return (
-								<div
+								<a href="#portfolio"
 									key={key}
 									className="w-full sm:w-[45%] lg:w-[30%] xs:max-w-[430px] sm:max-w-full"
 									onClick={() => {
@@ -191,10 +191,9 @@ const Portfolio: FC<PortfolioProps> = ({}) => {
 										});
 									}}
 								>
-									<a href="#portfolio">
+									
 										<ProjectCard project={projects[index]} />
-									</a>
-								</div>
+								</a>
 							);
 						}
 					})}

@@ -27,7 +27,7 @@ const Hero: FC<HeroProps> = ({}) => {
 		"ARTIST",
 		"WRITER",
 	];
-	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*?";
+	const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*?";
 
 	useEffect(() => {
 		// Get the element with the id "titles"

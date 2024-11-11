@@ -70,10 +70,9 @@ export default function Home() {
 		setIsLenisActive(bool);
 	};
 
-	/* Toggle Lenis when User Clicks Links */
-	useEffect(() => {
-		const links = document.querySelectorAll("a");
-
+	/* Toggle Lenis smooth scroll off temporarily when User Clicks Links */
+	const links = document.querySelectorAll("a");
+	useEffect(() => {;
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
 				toggleLenisScroll(false);
@@ -82,7 +81,7 @@ export default function Home() {
 				});
 			});
 		});
-	}, []);
+	}, [links]);
 
 	/* Handle Header Display on Scroll Up */
 	useEffect(() => {

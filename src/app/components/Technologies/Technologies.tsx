@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { Technologies } from "@/types/index";
+import type { Technologies } from "@/types/index";
 import { technologies } from "../../constants/index";
 import VanillaTilt from "vanilla-tilt";
 import "./Technologies.scss";
@@ -18,7 +18,7 @@ const TechCard: FC<TechCardProps> = ({ technology }) => {
 				<Image
 					src={technology.icon}
 					alt={technology.name}
-					className="w-full hidden sm:block"
+					className="w-full hidden sm:block pointer-events-none"
 				/>
 				<p className="text-hope-500 text-center sm:mt-2 text-[16px] sm:text-[16px] md:text-[24px] font-bold">
 					{technology.name}
@@ -44,7 +44,7 @@ const Technologies: FC<TechnologiesProps> = ({}) => {
 			<h2 className="mb-4 text-hope-500 text-center text-[48px] sm:text-[56px] lg:text-[64px] xl:text-[72px] 2xl:text-[84px] textTransition">
 				Technologies
 			</h2>
-			<section className="flex flex-wrap gap-5 sm:gap-10 justify-center">
+			<section className="flex flex-wrap gap-5 sm:gap-10 justify-center select-none pointer-events-none">
 				{technologies.map((technology, key) => (
 					<TechCard technology={technology} key={key} />
 				))}
