@@ -22,6 +22,7 @@ export default function Home() {
 	*/
 	const [lastScroll, setLastScroll] = useState(0);
 	const [isLenisActive, setIsLenisActive] = useState(true);
+	const [links, setLinks] = useState<NodeListOf<HTMLAnchorElement> | never[]>([]);
 
 	/* Add Smooth Scrolling to links */
 	useEffect(() => {
@@ -70,8 +71,25 @@ export default function Home() {
 		setIsLenisActive(bool);
 	};
 
+	/* useEffect(() => {
+		const updateLinks = () => {
+		  setLinks(Array.from(document.querySelectorAll("a")));
+		};
+	
+		// Initial update when component mounts
+		updateLinks();
+	
+		// Observe DOM changes to update the links array
+		const observer = new MutationObserver(updateLinks);
+		observer.observe(document.body, { childList: true, subtree: true });
+	
+		return () => {
+		  observer.disconnect();
+		};
+	  }, []); // Only run once when component mounts */
+
 	/* Toggle Lenis smooth scroll off temporarily when User Clicks Links */
-	const links = document.querySelectorAll("a");
+	/* let links = document.querySelectorAll("a");
 	useEffect(() => {;
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
@@ -81,7 +99,70 @@ export default function Home() {
 				});
 			});
 		});
-	}, [links]);
+	}, [links]); */
+
+	/* useEffect(() => {
+		const updateLinks = () => {
+		  setLinks(document.querySelectorAll("a"));
+		};
+	
+		// Initial update when component mounts
+		updateLinks();
+	
+		// Observe DOM changes to update the links array
+		const observer = new MutationObserver(updateLinks);
+		observer.observe(document.body, { childList: true, subtree: true });
+	
+		return () => {
+		  observer.disconnect();
+		};
+	  }, []); // Only run once when component mounts
+	
+	  useEffect(() => {
+		if (links) {
+		  links.forEach((link) => {
+			link.addEventListener("click", (e) => {
+			  toggleLenisScroll(false);
+			  setTimeout(() => {
+				toggleLenisScroll(true);
+			  });
+			});
+		  });
+		}
+	
+		return () => {
+		  if (links) {
+			links.forEach((link) => {
+			  link.removeEventListener("click", () => {});
+			});
+		  }
+		};
+	  }, [links]); */
+
+	  useEffect(() => {
+		const handleClick = (e: MouseEvent) => {
+		  let target = e.target as HTMLElement;
+	  
+		  while (target) {
+			if (target.tagName === "A"){
+				toggleLenisScroll(false);
+				setTimeout(() => {
+					toggleLenisScroll(true);
+				});
+				break;
+			}
+			target = target.parentElement as HTMLElement;
+		  }
+		};
+	  
+		document.addEventListener('click', handleClick);
+	  
+		return () => {
+		  document.removeEventListener('click', handleClick);
+		};
+	  }, []);
+	  
+	  
 
 	/* Handle Header Display on Scroll Up */
 	useEffect(() => {

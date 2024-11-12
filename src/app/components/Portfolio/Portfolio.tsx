@@ -1,3 +1,4 @@
+"use client"
 import React, { FC, useEffect, useState } from "react";
 import { Projects } from "@/types/index";
 import { projects } from "../../constants/index";
